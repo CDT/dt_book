@@ -29,7 +29,27 @@ export default defineConfig({
             { text: '现代史', link: '/history/china/modern.md' },
           ]
         }
-      ]
+      ],      
+      '/tech/': [{
+        text: '概述',
+        link: '/tech/'
+      }, {
+        text: '前端',
+        items: [
+          { text: 'Vue', link: '/tech/frontend/vue.md' }
+        ]
+      }, {
+        text: '后端',
+        items: [
+          { text: 'Node.js', link: '/tech/backend/nodejs.md' }
+        ]
+      }, {
+        text: '应用',
+        items: [
+          { text: 'Flarum', link: '/tech/applications/Flarum.md' }
+        ]
+      }
+    ]
     },
 
     socialLinks: [
