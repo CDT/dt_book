@@ -24,9 +24,9 @@ export default defineConfig({
         }, {
           text: '中国史',
           items: [
-            { text: '古代史', link: '/history/china/ancient.md' },
-            { text: '近代史', link: '/history/china/contemporary.md' },
-            { text: '现代史', link: '/history/china/modern.md' },
+            { text: '古代史', link: '/history/china/ancient' },
+            { text: '近代史', link: '/history/china/contemporary' },
+            { text: '现代史', link: '/history/china/modern' },
           ]
         }
       ],      
@@ -36,20 +36,26 @@ export default defineConfig({
       }, {
         text: '前端',
         items: [
-          { text: 'Vue', link: '/tech/frontend/vue.md' }
+          { text: 'Vue', link: '/tech/frontend/vue' }
         ]
       }, {
         text: '后端',
         items: [
-          { text: 'Node.js', link: '/tech/backend/nodejs.md' }
+          { text: 'Node.js', link: '/tech/backend/nodejs' }
         ]
       }, {
         text: '应用',
         items: [
-          { text: 'Flarum', link: '/tech/applications/Flarum.md' }
+          { text: 'Flarum', link: '/tech/applications/Flarum' }
         ]
-      }
-    ]
+      }],
+      '/literature/': [{
+        text: '概述',
+        link: '/literature/'
+      },{
+        text: '诗词',
+        link: '/literature/poetry'
+      }],
     },
 
     socialLinks: [
