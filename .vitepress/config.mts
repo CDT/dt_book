@@ -56,6 +56,22 @@ export default defineConfig({
         text: '诗词',
         link: '/literature/poetry'
       }],
+      '/misc/': [{
+        text: '新能源',
+        items: [
+          { text: '应用', link: '/misc/power_solutions/healthcare' }
+        ]
+      }, {
+        text: '雅思',
+        items: [
+          { text: '词汇', link: '/misc/ielts/vocab' }
+        ]
+      }, {
+        text: '留学',
+        items: [
+          { text: '大学申请条件', link: '/misc/university_application/requirements' }
+        ]
+      }]
     },
 
     socialLinks: [

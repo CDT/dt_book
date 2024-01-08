@@ -7,7 +7,7 @@ hero:
   text: "Chen Dongtian's Notebook"
   tagline: My readings and reflections
   image:
-    src: /hero.jpeg
+    src: /images/hero.jpeg
     alt: hero image
   # actions:
   #   - theme: brand
