@@ -69,7 +69,7 @@ export default defineConfig({
       }, {
         text: '留学',
         items: [
-          { text: '大学申请条件', link: '/misc/university_application/requirements' }
+          { text: '马来西亚大学申请', link: '/misc/university_application/malaysia_universities' }
         ]
       }]
     },
