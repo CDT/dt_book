@@ -10,7 +10,7 @@ outline: 'deep'
 
 - **背景**：中国高中美术生，准备申请马来西亚大学，倾向于视觉传达，数字媒体，产品设计，工业设计，园林设计等实际应用型的艺术相关专业，或者工商管理，教育学等文科专业。
 
-# Plan 1
+## Plan 1
 
 As a Chinese high school student majoring in fine arts, you are interested in applying to Malaysian universities that offer practical art-related majors such as visual communication, digital media, product design, industrial design, landscape design, and other applied arts disciplines. Alternatively, you are also interested in humanities majors like business administration and education. Here is a tailored application plan for the following five universities in Malaysia: University of Malaya, Universiti Putra Malaysia (UPM), National University of Malaysia (UKM), Universiti Sains Malaysia (USM), and Universiti Teknologi Malaysia (UTM).
 
@@ -86,9 +86,9 @@ Source:
 (31) undefined. http://www.ukm.my/pkp/en/.
 -->
 
-# Plan 2
+## Plan 2
 
-## Tailored Application Plan for Malaysian Universities (Fine Arts & Humanities)
+**Tailored Application Plan for Malaysian Universities (Fine Arts & Humanities)**
 
 I understand your desire to pursue practical art-related or humanities majors in Malaysia. Here's a tailored application plan for the five universities you mentioned, including official links for requirements:
 
