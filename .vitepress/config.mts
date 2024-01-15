@@ -42,13 +42,15 @@ export default defineConfig({
       }, {
         text: '后端',
         items: [
-          { text: 'Node.js', link: '/tech/backend/nodejs' }
+          { text: 'Node.js', link: '/tech/backend/nodejs' },
+          { text: 'Snippets', link: '/tech/backend/snippets' },
         ]
       }, {
         text: '应用',
         items: [
           { text: 'Flarum', link: '/tech/applications/flarum' },
-          { text: 'Linux系统操作', link: '/tech/applications/linux' }
+          { text: 'Linux系统操作', link: '/tech/applications/linux' },
+          { text: 'FAQ', link: '/tech/applications/faq' }
         ]
       }],
       '/literature/': [{
