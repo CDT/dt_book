@@ -47,7 +47,8 @@ export default defineConfig({
       }, {
         text: '应用',
         items: [
-          { text: 'Flarum', link: '/tech/applications/Flarum' }
+          { text: 'Flarum', link: '/tech/applications/flarum' },
+          { text: 'Linux系统操作', link: '/tech/applications/linux' }
         ]
       }],
       '/literature/': [{
