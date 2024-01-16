@@ -1,7 +1,3 @@
----
-outline: 'deep'
----
-
 # Snippets
 
 ![Code](/images/code.webp)
@@ -36,6 +32,10 @@ http-server /path/to/dist -p 8888
 
 ## Use local-web-server to host https content
 
-[Add a certificate](https://github.com/lwsjs/local-web-server/wiki/How-to-get-the-%22green-padlock%22-using-the-built-in-certificate)
+### Add and trust a certificate
+[Reference](https://github.com/lwsjs/local-web-server/wiki/How-to-get-the-%22green-padlock%22-using-the-built-in-certificate)
 
-[Launch an https server](https://github.com/lwsjs/local-web-server/wiki/How-to-launch-a-secure-local-web-server-(HTTPS))
+
+### Launch an https server
+
+[Reference](https://github.com/lwsjs/local-web-server/wiki/How-to-launch-a-secure-local-web-server-(HTTPS))
