@@ -39,22 +39,80 @@ sudo mv composer.phar /usr/local/bin/composer
 ```
 
 
-### 3. 创建Flarum并配置Nginx
+### 3. 创建Flarum安装文件
 
-创建`flarum`文件夹并在该文件夹内初始化flarum程序包：
+在`/var/wwww/`目录下创建`flarum`目录并在该文件夹内初始化flarum程序包：
 
-``` shell
+``` bash
+cd /var/www
 mkdir flarum
+cd flarum
 composer create-project flarum/flarum .
 ```
 
-创建完成后，文件夹内应该有了一个`public`目录，将nginx的webroot指向该文件夹：
+::: tip
+建议将flarum创建在`/var/www`目录下，该目录nginx可以正常访问无需额外配置文件权限。其他目录可能产生`403 Forbidden`错误。
+:::
 
+### 4. 配置Nginx
+
+安装php（版本要求7.3以上，过程略）
+
+安装php-fpm(FastCGI Process Manager)，从而使php页面可以正常解析：
+
+``` bash
+sudo yum install php-fpm
 ```
-// /etc/nginx/nginx.conf
+
+查看php-fpm的配置，找到listen的地址：
+
+``` conf
+# /etc/php-fpm.d/www.conf
+# 找到此行，具体的listen地址可能根据版本而不同
+listen = 127.0.0.1:9000
+```
+
+
+修改nginx.conf: 
+  1. 将nginx的webroot指向Flarum的`public`目录
+  2. 默认页面增加`index.php`
+  3. 将php页面用php-fpm解析
+
+``` conf
+# /etc/nginx/nginx.conf
 server {
-  root [flarum的public目录，例如/root/flarum/public]；
-}
+    listen       80;
+    listen       [::]:80;
+    server_name  _;
+
+    # 1. 将nginx的webroot指向Flarum的public目录
+    root /var/www/flarum/public;
+
+    # Load configuration files for the default server block.
+    include /etc/nginx/default.d/*.conf;
+
+    error_page 404 /404.html;
+    location = /404.html {
+    }
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+    }
+
+    # 2. 默认页面增加index.php：
+    location / {
+        index index.php index.html;
+        try_files $uri $uri/ = 404;
+    }
+
+    # 3. 将php页面用php-fpm解析
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass 127.0.0.1:9000;
+    }
+
 ```
 
 然后重启nginx:
@@ -63,7 +121,9 @@ server {
 service nginx restart
 ```
 
-确保外部可以访问本机80端口：
+### 5. 配置防火墙
+
+添加80端口至防火墙并重启防火墙：
 
 ``` shell
 firewall-cmd --permanent --add-port=80/tcp
@@ -75,3 +135,5 @@ firewall-cmd --reload
 ``` shell
 firewall-cmd --list-ports
 ```
+
+### 6. 配置Flarum
