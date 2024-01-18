@@ -13,11 +13,9 @@ Suppose you are on Windows system.
 
 ## Vitepress配置Github Pages
 
-Github workflow配置如下：
+对于使用yarn的vitepress项目，Github workflow配置如下：
 
 ``` yml
-# Sample workflow for building and deploying a VitePress site to GitHub Pages
-#
 name: Deploy VitePress site to Pages
 
 on:
