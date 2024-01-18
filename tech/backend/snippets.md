@@ -29,13 +29,3 @@ npx http-server /path/to/dist -p 8888
 npm install -g http-server
 http-server /path/to/dist -p 8888
 ```
-
-## Use local-web-server to host https content
-
-### Add and trust a certificate
-[Reference](https://github.com/lwsjs/local-web-server/wiki/How-to-get-the-%22green-padlock%22-using-the-built-in-certificate)
-
-
-### Launch an https server
-
-[Reference](https://github.com/lwsjs/local-web-server/wiki/How-to-launch-a-secure-local-web-server-(HTTPS))

@@ -22,11 +22,6 @@ A PWA is a normal web application with these additional assets:
 3. `https`: [Service workers are restricted to secure contexts](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts), so HTTPS protocol is mandatory for PWA.
 
 
-### How to add a built-in TLS certificate and serve the web app over HTTPS
-
-[See how to serve via https with local-web-server](/tech/backend/snippets.html#use-local-web-server-to-host-https-content)
-
-
 ## Demo: Menstrual Tracker
 
 [Download code](/misc/ct.zip)
