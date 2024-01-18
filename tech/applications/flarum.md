@@ -48,13 +48,10 @@ cd /var/www
 mkdir flarum
 cd flarum
 composer create-project flarum/flarum .
+chmod -R 777 /var/wwww/flarum # 后面Flarum会写入一些文件，因此要放开权限
 ```
 
-::: tip
-建议将flarum创建在`/var/www`目录下，该目录nginx可以正常访问无需额外配置文件权限。其他目录可能产生`403 Forbidden`错误。
-:::
-
-### 4. 配置Nginx
+### 4. 配置PHP
 
 安装php（版本要求7.3以上，过程略）
 
@@ -63,6 +60,34 @@ composer create-project flarum/flarum .
 ``` bash
 sudo yum install php-fpm
 ```
+
+安装php-mbstring扩展：
+
+``` bash
+sudo yum install php-mbstring
+```
+
+
+
+
+安装php-mysqli扩展：
+``` bash
+sudo yum install php-mysqli
+```
+一般而言，php会自带mysqlnd，mysqlnd包含mysqli，已经不需要安装mysqli了。
+
+
+
+
+启用mbstring：
+
+``` bash
+# /etc/php.ini
+# 增加：
+extension=mbstring
+```
+
+### 5. 配置Nginx
 
 查看php-fpm的配置，找到listen的地址：
 
@@ -121,7 +146,7 @@ server {
 service nginx restart
 ```
 
-### 5. 配置防火墙
+### 6. 配置防火墙
 
 添加80端口至防火墙并重启防火墙：
 
@@ -136,4 +161,54 @@ firewall-cmd --reload
 firewall-cmd --list-ports
 ```
 
-### 6. 配置Flarum
+### 7. 安装MariaDB
+
+MariaDB原本是MySQL的一个分支，后独立出来。性能等各方面略优于MySQL。
+
+安装MariaDB:
+
+``` bash
+sudo yum install mariadb-server
+```
+
+开放端口：
+
+``` bash
+sudo firewall-cmd --permanent --add-port=3306/tcp
+sudo firewall-cmd --reload
+```
+
+允许外部连接，修改`/etc/my.cnf`并添加如下至`[mysqld]`部分：
+
+```
+bind-address=0.0.0.0
+```
+
+配置用户：
+
+``` bash
+# root用户默认没有密码，配置一个先：
+sudo mysqladmin -u root password '[新密码]'
+# 登录mariadb
+mylsql -u root -p
+# 创建用户，%表示可以从任意主机连接（若为localhost则表示只能本地连接了）
+create user 'flarum'@'%' identified by 'flarum123';
+# 创建数据库
+create database flarum;
+# 授权
+grant all privileges on flarum.* to 'flarum'@'%';
+# 刷新
+flush privileges;
+```
+
+启用服务：
+
+``` bash
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+```
+
+
+### 8. 配置Flarum
+
+访问nginx配置的地址，开始配置Flarum。
