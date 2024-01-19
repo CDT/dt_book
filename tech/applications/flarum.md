@@ -6,7 +6,27 @@ outline: 'deep'
 
 ![Flarum Logo](/images/flarum-logo.png)
 
-## 安装（Linux）
+## 安装（自动）
+
+### 安装LAMP环境
+
+[👉安装 LAMP 一键安装包](https://www.bandwagonhost.net/4526.html)
+
+``` bash
+yum -y install wget screen git
+apt-get -y install wget screen git
+git clone https://github.com/teddysun/lamp.git 
+cd lamp 
+chmod 755 *.sh
+screen -S lamp 
+./lamp.sh
+```
+
+## 安装（手动）
+
+::: warning
+手动配置LNMP环境麻烦程度堪比灾难，建议还是使用脚本。
+:::
 
 ### 1. 安装Apache/Nginx、PHP 7.3+、MySQL 5.6+/8.0.23+
 
@@ -146,7 +166,7 @@ server {
 service nginx restart
 ```
 
-### 6. 配置防火墙
+### 6. 配置防火墙和SELinux
 
 添加80端口至防火墙并重启防火墙：
 
@@ -161,14 +181,36 @@ firewall-cmd --reload
 firewall-cmd --list-ports
 ```
 
-### 7. 安装MariaDB
+如果数据库连接出现`Permission Denied`错误，运行`sudo setenforce 0`然后测试是否可以正常连接，若可以则为SELinux拦截了。
+
+记得测试后重启SELinux：`sudo setenforce 1`。
+
+若SELinux拦截了MariaDB连接，则使用以下命令允许连接：
+
+``` bash
+setsebool httpd_can_network_connect_db 1
+```
+
+
+### 7. 安装MariaDB（待再次验证，问题较多）
 
 MariaDB原本是MySQL的一个分支，后独立出来。性能等各方面略优于MySQL。
+
+配置仓库：
+
+``` ini
+# 在/etc/yum.repos.d下增加MariaDB.repo:
+[mariadb]
+name = MariaDB
+baseurl = https://mirror.mariadb.org/yum/11.3.1/centos7-amd64/ # 此处根据实际情况选择版本
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+```
 
 安装MariaDB:
 
 ``` bash
-sudo yum install mariadb-server
+sudo yum install MariaDB-server MariaDB-client
 ```
 
 开放端口：
@@ -184,11 +226,23 @@ sudo firewall-cmd --reload
 bind-address=0.0.0.0
 ```
 
-配置用户：
+配置root用户密码：
 
 ``` bash
 # root用户默认没有密码，配置一个先：
 sudo mysqladmin -u root password '[新密码]'
+```
+
+启动数据库：
+
+``` bash
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+```
+
+配置数据库：
+
+``` bash
 # 登录mariadb
 mylsql -u root -p
 # 创建用户，%表示可以从任意主机连接（若为localhost则表示只能本地连接了）
@@ -199,13 +253,6 @@ create database flarum;
 grant all privileges on flarum.* to 'flarum'@'%';
 # 刷新
 flush privileges;
-```
-
-启用服务：
-
-``` bash
-sudo systemctl start mariadb
-sudo systemctl enable mariadb
 ```
 
 
