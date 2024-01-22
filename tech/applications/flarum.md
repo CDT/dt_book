@@ -6,11 +6,12 @@ outline: 'deep'
 
 ![Flarum Logo](/images/flarum-logo.png)
 
-## 安装（自动）
+## 安装（自动，推荐）
 
 ### 安装LAMP环境
 
 [👉安装 LAMP 一键安装包](https://www.bandwagonhost.net/4526.html)
+[👉Github lamp](https://github.com/teddysun/lamp)
 
 ``` bash
 yum -y install wget screen git
@@ -22,7 +23,45 @@ screen -S lamp
 ./lamp.sh
 ```
 
-## 安装（手动）
+### 安装Composer
+
+[👉安装Composer](/tech/applications/flarum.html#_2-安装composer)
+
+### 安装Flarum
+
+配置安装路径：
+
+``` bash
+# 按具体情况配置即可：
+lamp add
+# 配置网站文件权限：
+chown -R apache.apache /data/www/[域名]
+```
+
+如果需要，可以修改配置：
+``` bash
+sudo vim /usr/local/apache/conf/vhost/[域名].conf
+```
+
+如果使用非80端口，修改apache配置文件，并配置一下防火墙：
+``` bash
+# /usr/local/apache/conf/httpd.conf
+# 在Listen 80后加上：
+Listen [端口];
+
+# 配置防火墙
+firewall-cmd --permanent --add-port=[端口]/tcp
+firewall-cmd --reload
+```
+
+安装Flarum:
+
+``` bash
+cd /data/www/[域名]
+composer create-project flarum/flarum .
+```
+
+## 安装（手动，不推荐）
 
 ::: warning
 手动配置LNMP环境麻烦程度堪比灾难，建议还是使用脚本。
