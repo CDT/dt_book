@@ -140,9 +140,9 @@ outline: 'deep'
 - **简介**：马来西亚泰莱大学（Taylor's University）成立于1969年，位于马来西亚首都吉隆坡，是马来西亚顶尖的私立大学。在商科、酒店管理、设计、工程等领域较为出色。
 - **链接**：
   - [学校官网](https://university.taylors.edu.my/)
-  - [项目列表(暂未搜到)]()
-  - [申请条件(暂未搜到)]()
-  - [申请入口(暂未搜到)]()
+  - [项目列表，申请条件和申请入口](https://university.taylors.edu.my/en/study/explore-all-programmes.html)
+    - 项目下方的Apply Now为申请入口，Entry Requirements为申请条件
+    - 注意该学校并未针对留学生单独设置项目，所有项目留学生均可申请
 
 ### 思特雅大学 UCSI University (USCI)
 
@@ -150,8 +150,8 @@ outline: 'deep'
 - **简介**：马来西亚思特雅大学（UCSI University）成立于1986年，位于马来西亚首都吉隆坡，是马来西亚顶尖的私立大学，在表演艺术、酒店管理、工程、医学等领域较为出色。
 - **链接**：
   - [学校官网](https://www.ucsiuniversity.edu.my/)
-  - [项目列表(暂未搜到)]()
-  - [申请条件(暂未搜到)]()
+  - [项目列表和申请条件](https://www.ucsiuniversity.edu.my/undergraduate)
+    - 每个项目页面右侧的Enquire Now可以咨询入学，会有工作人员回复邮件
   - [申请入口](https://iisv2.ucsiuniversity.edu.my/apex/f?p=520:LOGIN_DESKTOP:4422397954497:::::IK&tz=8:00)
 
 ### 国油大学 Universiti Teknologi PETRONAS (UTP)
