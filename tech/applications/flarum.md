@@ -38,10 +38,42 @@ lamp add
 chown -R apache.apache /data/www/[域名]
 ```
 
-如果需要，可以修改配置：
+### 配置VHOST
+
+修改配置：
+
 ``` bash
 sudo vim /usr/local/apache/conf/vhost/[域名].conf
+# 添加flarum目录：
+  php_admin_value open_basedir /data/www/flarum/public:/tmp:/var/tmp:/proc:/data/www/default/phpmyadmin:/data/www/default/kod:[此处添加flarum根目录]
 ```
+
+::: warning 
+对于flarum，必须修改vhost配置的`php_admin_value`，保证其包含flarum根目录，否则会报500错误。
+:::
+
+### 配置数据库
+
+配置数据库：
+
+``` bash
+# /etc/my.cnf
+[mysqld]
+bind-address = 0.0.0.0
+```
+
+添加数据库、用户等：
+
+``` bash
+mysql -u root
+create database flarum;
+create user 'flarum'@'%' identified by '%%%';
+grant all privileges on flarum.* to 'flarum'@'%';
+flush privileges;
+# 最后给root设置一下密码，如果没设置的话：
+alter user 'root'@'%' identified by '%%%';
+```
+
 
 如果使用非80端口，修改apache配置文件，并配置一下防火墙：
 ``` bash
