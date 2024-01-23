@@ -44,6 +44,7 @@ export default defineConfig({
         text: '后端',
         items: [
           { text: 'Node.js', link: '/tech/backend/nodejs' },
+          { text: 'Nginx & Apache', link: '/tech/backend/nginx_apache' },
           { text: 'Snippets', link: '/tech/backend/snippets' },
         ]
       }, {
