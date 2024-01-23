@@ -182,7 +182,7 @@ extension=mbstring
 
 查看php-fpm的配置，找到listen的地址：
 
-``` conf
+``` bash
 # /etc/php-fpm.d/www.conf
 # 找到此行，具体的listen地址可能根据版本而不同
 listen = 127.0.0.1:9000
@@ -194,7 +194,7 @@ listen = 127.0.0.1:9000
   2. 默认页面增加`index.php`
   3. 将php页面用php-fpm解析
 
-``` conf
+``` bash
 # /etc/nginx/nginx.conf
 server {
     listen       80;

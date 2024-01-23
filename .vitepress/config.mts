@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import wechatIcon from './wechat-icon'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -60,7 +61,9 @@ export default defineConfig({
         text: '诗词',
         link: '/literature/poetry'
       }],
-      '/misc/': [{
+      '/misc/': [
+      { text: '其他', link : '/misc' },  
+      {
         text: '新能源',
         items: [
           { text: '应用', link: '/misc/power_solutions/healthcare' }
@@ -83,7 +86,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: wechatIcon, link: '/images/wechat.jpg' }
     ],
     search: {
       provider: 'local'
