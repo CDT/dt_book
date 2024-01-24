@@ -30,7 +30,29 @@ export default defineConfig({
             { text: '现代史', link: '/history/china/modern' },
           ]
         }
-      ],      
+      ],   
+      '/music/': [{
+          text: '概述',
+          link: '/music/'
+        }, {
+          text: 'Theory',
+          items: [
+            { text: 'Scales', link: '/music/theory/scales' },
+            { text: 'Intervals', link: '/music/theory/intervals' },
+            { text: 'Chords', link: '/music/theory/chords' },
+            { text: 'Rhythm', link: '/music/theory/rhythm' },
+            { text: 'Harmony', link: '/music/theory/harmony' },
+            { text: 'Keys', link: '/music/theory/keys' },
+            { text: 'Tempo', link: '/music/theory/tempo' },
+            { text: 'Notation', link: '/music/theory/notation' },
+            { text: 'Dynamics', link: '/music/theory/dynamics' },
+            { text: 'Beats', link: '/music/theory/beats' },
+            { text: 'Ear Training', link: '/music/theory/eartraining' },
+            { text: 'Texture', link: '/music/theory/texture' },
+            { text: 'Timbre', link: '/music/theory/timbre' }
+          ]
+        }
+      ],
       '/tech/': [{
         text: '概述',
         link: '/tech/'
@@ -77,7 +99,7 @@ export default defineConfig({
       }, {
         text: '留学',
         items: [
-          { text: '概述', link: '/misc/university_application/' },
+          { text: '基础', link: '/misc/university_application/' },
           { text: '马来西亚大学申请', link: '/misc/university_application/malaysia_universities' },
           { text: '案例', items: [
             { text: '案例1：美术生申请马来西亚大学', link: '/misc/university_application/cases/case1.md'}
