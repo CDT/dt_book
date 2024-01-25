@@ -240,14 +240,14 @@ outline: [2, 3]
 
 根据马来西亚教育全球服务机构EMGS的统计，整个2021年有40140名国际新生来马来西亚留学攻读高等学位文凭和证书，比2020年的30342人多了近1万，增幅为32%。其中，2021年新增的国际学生中有一半来自东亚。
 
-#### 国家分布
+- 国家分布
 
 ![malay001](/images/malay001.webp)
 
 根据EMGS的数据统计，2021年来马来西亚留学的国际新生主要来自中国、印尼、孟加拉、巴基斯坦、尼日利亚、印度、也门、埃及、伊拉克和日本。来自这10个国家的国际新生总计30522人，约占2021年国际新生总数40140万人的3/4，其中中国学生有19202，约占国际新生总数的48%，几乎是国际生总数的半壁江山，同时也占了整个东亚留学新生总数20401人的94%，因此东亚的留学生几乎都是来自中国。而2020年，来马来西亚留学的中国学生才8876人，2021年足足增加了1万多人，翻了一倍多。
 
 
-#### 学位分布
+- 学位分布
 
 ![malay002](/images/malay002.webp)
 
@@ -255,15 +255,302 @@ outline: [2, 3]
 
 
 
-#### 学校分布
+- 学校分布
 
 ![malay003](/images/malay003.webp)
 
 根据EMGS的数据统计，2021年留学马来西亚的国际新生主要在私立大学、公立大学和独立学院学习。其中，去私立大学留学的新生有16164人，去公立大学留学的新生有14833人，去独立学院留学的人有4043人。另外，有2657人去英澳等马来西亚分校留学，有1756人在大学学院留学。总体而言，2021年相对2020年，去大学学院留学的国际新生增幅最大有73%，其次去公立大学留学的国际新生增幅为51%，独立学院留学新生增幅为44%，私立大学国际新生增加了29%。不过，人数增加最多的是公立大学，增加了4998人，私立大学增加了3611人。
 
-#### 学科分布
+- 学科分布
 
 ![malay004](/images/malay004.webp)
 
 根据EMGS的数据统计，2021年的国际新生主要学习社会学科、商科和法律，学习这些专业的人数有15796人，占所有专业总人数（40140）的1/3以上，比2020年增加了50.1%。另外，科学、数学和计算机专业有4157人攻读，增幅为14.6%；其次是艺术和人文学科共有4299人留学，比2020年增加了46.6%。综合来看，教育专业增幅最大，达到了142.7%。
 
+### 马来西亚大学的学制是怎么样的？
+
+[👉Malaysian Education](https://www.hotcoursesabroad.com/study-in-malaysia/applying-to-university/malaysian-education)
+
+In Malaysia, most universities' academic years run from around September to June, and are divided into either two or three semesters. However, some begin their years in January or February, with an end around October. In some cases, you may even have a choice of which you would prefer, as your course may have two separate intakes.
+
+### 马来西亚大学的回国认可度问题
+
+[👉关于马来西亚回国认可度问题](https://www.jjl.cn/article/1170246.html)
+
+- **QS排名及中留服认证问题**
+
+马来西亚前五所公立学校QS排名均在200名之内，虽然马来西亚留学生回国可能确实没有主流留学国家认可度高，但是中留服是认证的，这一点不用担心！QS排名在中国的认可度还是可以的。
+
+- **国考、 省考、考公考编**
+
+国家认可度方面，简单来说就是文凭在国内考编制、 评职称、读博等等方面的认可度。马来亚大学QS排名前100, 已经达到部分省市的招录门槛。比如青岛市, 河南省等。
+
+对于某些央企、 区域编制的要求来说，要求是QS排名150以内的学校。像马来西亚的马来亚、博特拉、理科、国民大学, 都是满足排名150以内的。山东省2023年定向选调名单中也有马来亚大学的毕业生。
+
+对于普通编制考试来说，要求是全日制本科或者全日制硕士，这个文凭也满足条件。
+
+对于人才引进来说，要么是高校引进博士，给教职事业编，要么是地级市/区单位, 进去之后给事业编制。对海外留学生，一般以“四大排名”作为评判标准, 比如排名QS前100, 前200的，可以报考。
+
+- **大厂或私企招聘**
+
+因为大企业的内部hr系统, 都是会对候选人的学历打标签的, 通常要求国内211/985或海外QS200、QS100。
+
+对于hr来说，学历只是一个硬性要求, 如符合条件就会跳过学校背景, 去看你的实习实践经历。 至于马来西亚是否留学鄙视链底层, 只要能力实力过硬, 其实并不会。 部分毕业生反映在求职的过程中没有遇到任何对于学历的不认可, 反而他的留洋经历是企业更看重的。
+
+- **回国落户政策**
+
+比如落户、 留学生创业资金支持等, 都是达到申请条件的。 其中上海是要求QS500以内的世界名校, 所以马来西亚的这几所主流学校都是可以支持落户政策。
+
+### 中留服承认的马来西亚院校列表清单
+
+[👉中留服承认的马来西亚院校列表清单](https://www.163.com/dy/article/IA8Q8SUB05563M9M.html)
+
+根据2019年6月28日-2022年6月28日数据公开时间显示，目前有98所马来西亚院校是受中留服认证的，分别是：（排名不分先后）
+
+1. 奥林匹亚学院(Olympia College)
+
+2. ALFA学院(ALFA College)
+
+3. 波德申工艺学院(Politeknik Port Dickson)
+
+4. 博特拉商学院(Putra Business School)
+
+5. 槟城技能发展中心(Penang Skills Development Centre)
+
+6. 北婆罗洲大学学院(North Borneo University College)
+
+7. 布里克菲尔德亚洲学院(Brickfields Asia College)
+
+8. 必达智学院(Pintar College)
+
+9. 毕理学院(Methodist Pilley Institute)
+
+10. 八打灵再也斯坦福学院(Stamford College Petaling Jaya)
+
+11. 测绘大学学院(Geomatika University College)
+
+12. 城市大学(City University)
+
+13. 成功礼待大学学院(BERJAYA University College)
+
+14. 都市学院(Metropolitan College)
+
+15. 多媒体大学(Multimedia University)
+
+16. 第一城市大学学院(First City University College)
+
+17. 敦阿都拉萨大学(Universiti Tun Abdul Razak)
+
+18. 第一工艺学院(Pertama Institute of Technology)
+
+19. 敦拉萨国际大学(UNITAR International University)
+
+20. 管理与科学大学(Management and Science University)
+
+21. 国家能源大学(Universiti Tenaga Nasional)
+
+22. 国油科技大学(Universiti Teknologi Petronas)
+
+23. 国际伊斯兰学院(International Islamic College)
+
+24. 韩江传媒大学学院(Han Chiang University College of Communication)
+
+25. 吉隆坡都市大学学院(Kuala Lumpur Metropolitan University College)
+
+26. 精英学院(HELP Academy)
+
+27. 吉隆坡建设大学(Infrastructure University Kuala Lumpur)
+
+28. 吉隆坡大学(Universiti Kuala Lumpur)
+
+29. 精英大学(HELP University)
+
+30. 林国荣行政领导学院(Limkokwing Executive Leadership College)
+
+31. 林国荣创意科技大学(Limkokwing University of Creative Technology)
+
+32. 林登大学学院(Linton University College)
+
+33. 拉曼学院(Tunku Abdul Rahman College)
+
+34. 拉曼大学(Universiti Tunku Abdul Rahman)
+
+35. 立肯学院(Erican College)
+
+36. 林肯大学学院(Lincoln University College)
+
+37. 拉曼大学学院(Tunku Abdul Rahman University College)
+
+38. 立万国际美术学院(The One Academy of Communication Design)
+
+39. 马来西亚科技大学(Malaysia University of Science and Technology)
+
+40. 马来西亚艺术学院(Malaysian Institute of Art)
+
+41. 马来西亚海事学院(Malaysian Maritime Academy)
+
+42. 麦地那国际大学(Al-Madinah International University)
+
+43. 马来西亚农业大学(Universiti Pertanian Malaysia)
+
+44. 马来亚-威尔士国际大学(International University of Malaya-Wales)
+
+45. 玛尼帕尔国际大学(Manipal International University)
+
+46. 马来西亚马六甲技术大学(Universiti Teknikal Malaysia Melaka)
+
+47. 马来西亚国际伊斯兰大学(International Islamic University Malaysia)
+
+48. 马来西亚商学院(Malaysian Integrated Business College)
+
+49. 玛拉工艺大学(Universiti Teknologi MARA)
+
+50. 马来西亚管理学院(Malaysian Institute of Management)
+
+51. 玛莎大学(MAHSA University)
+
+52. 马来西亚伊斯兰科学大学(Universiti Sains Islam Malaysia)
+
+53. 马来西亚玻璃市大学(Universiti Malaysia Perlis)
+
+54. 马来亚大学(University of Malaya)
+
+55. 马来西亚北方大学(Universiti Utara Malaysia)
+
+56. 马来西亚敦胡先翁大学(Universiti Tun Hussein Onn Malaysia)
+
+57. 马来西亚理工大学(Universiti Teknologi Malaysia)
+
+58. 马来西亚理科大学(Universiti Sains Malaysia)
+
+59. 马来西亚博特拉大学(Universiti Putra Malaysia)
+
+60. 马来西亚丁加奴大学(Universiti Malaysia Terengganu)
+
+61. 马来西亚沙捞越大学(Universiti Malaysia Sarawak)
+
+62. 马来西亚沙巴大学(Universiti Malaysia Sabah)
+
+63. 马来西亚彭亨大学(Universiti Malaysia Pahang)
+
+64. 马来西亚国立大学(Universiti Kebangsaan Malaysia)
+
+65. 马来西亚双德科技大学(Twintech International University College of Technology)
+
+66. 南方大学学院(Southern University College)
+
+67. 普渡国际学院(Putra International College)
+
+68. 汝莱大学(Nilai University)
+
+69. 双德国际科技大学学院(International University College of Technology Twintech)
+
+70. 世纪学院吉隆坡校区(SEGi College Kuala Lumpur)
+
+71. 世纪大学(SEGi University)
+
+72. 双威大学(Sunway University)
+
+73. 思特雅国际大学学院大学(UCSI University)
+
+74. 世纪学院梳邦再也校区(SEGi College Subang Jaya)
+
+75. 苏丹阿都哈林姆阿占沙国际伊斯兰大学(Universiti Islam Antarabangsa Sultan Abdul Halim Mu'adzam Shah)
+
+76. 世纪学院哥打白沙罗校区(SEGi College Kota Damansara)
+
+77. 苏丹阿卜杜拉哈林姆阿让沙理工学院(Politeknik Sultan Abdul Halim Mu'adzam Shah)
+
+78. 赛城大学(University of Cyberjaya)
+
+79. 双威学院(Sunway College)
+
+80. 苏丹依德理斯教育大学(Universiti Pendidikan Sultan Idris)
+
+81. 苏丹宰因阿比丁大学(Universiti Sultan Zainal Abidin)
+
+82. 世纪学院槟城校区(SEGi College Penang)
+
+83. 泰莱大学(Taylor's University)
+
+84. 伍伦贡马来西亚伯乐槟城大学学院(UOW MALAYSIA KDU Penang University College)
+
+85. 伍伦贡马来西亚伯乐大学学院(UOW Malaysia KDU University College)
+
+86. 威斯敏斯特国际学院(Westminster International College)
+
+87. 文德学院(Mantissa College)
+
+88. 伍伦贡马来西亚伯乐学院(UOW Malaysia KDU College)
+
+89. 新纪元大学学院(New Era University College)
+
+90. 亚太信息技术学院(Asia Pacific Institute of Information Technology)
+
+91. 英迪国际学院槟城校区(INTI International College Penang)
+
+92. 英迪学院沙捞越校区(INTI College Sarawak)
+
+93. 英迪国际学院梳邦校区(INTI International College Subang)
+
+94. 亚太技术与创新大学(Asia Pacific University of Technology and Innovation)
+
+95. 伊斯兰金融国际教育中心(International Centre for Education in Islamic Finance)
+
+96. 英迪学院汝来校区(INTI College Nilai)
+
+97. 英迪学院梳邦再也校区(INTI College Subang Jaya)
+
+98. 英迪国际大学(INTI International University)
+
+### 留学应该什么时候申请？
+
+[👉马来西亚留学专业怎么选？热门专业有哪些？留学费用多少？如何挑选合适的中介？马来西亚留学指南](https://www.zhihu.com/tardis/zm/art/630071232?source_id=1003)
+
+马来西亚公立大学每年有两次入学机会，7月和12月、或者2月和9月开学。
+
+马来西亚私立大学一般一年有3次入学机会，分别是1月、5月和9月。
+
+一般入学前4-6个月申请，以9月入学为例：
+
+- **1-2月:确定选校、材料**
+  - 提前确定好学校和专业
+  - 准备申请文书：
+    个人陈述、推荐信、大学成绩单、个人简历毕业证、学位证公证书(中英文对照)、工作证明(如有)等材料递交申请，学习雅思
+
+- **2-4月:准备语言考试，递交申请**
+  - 如果达到复试分数线，专心准备面试；如果没通过初试，可以开始参加雅思考试
+  - 继续递交申请，并等待马来西亚的大学发放录取通知书。
+  - 建议带语言成绩申请，否则会出现被“占位”的情况。简单来说，就是学校让你延期入学I
+
+- **O4-5月:确认offer，缴纳留位费**
+  - 这个时候基本上留学申请和考研的最终结果都出来了!!同学们可以评估下优劣势，择优选择!
+  - 如果打算留学，那就可以确定入读马来西亚院校。根据院校规定缴纳留位费，考取语言成绩收到conditional offer的同学换取unconditionaloffer，并申请学校宿舍!!
+
+- **5月-7月:准备签证**
+  - 大马EMGS(专门服务赴马留学生的签证办理)的网址:
+    - https://malaysiavisa.imi.gov.myevisa/evisa.jsp
+  - 绿色5%:成功创建学生档案
+  - 绿色10%: 费用审核通过
+  - 绿色15%:学生所诉院校认证通过
+  - 绿色32%:所有资料审核通过，获得Approval Letter
+  - 绿色70%:VAL(visa approval letter)即返签信，还有一本签证指南
+  - 绿色85%:EMGS已经递交护照给移民局
+  - 绿色95%:移民局已经签发学生签证
+  - 绿色100%: 材料从EMGS到学校
+  - 签证进度75%即可入境！
+
+- **8-10月:行前准备**
+  - 学校所需文件:
+    - 毕业证原件成绩单原件及公证书(公立学校需要，私立大学一般不需要)V
+    - 白底和蓝底证件照
+    - 一寸4张
+    - 电子签2份
+    - 入境所需文件
+    - 签证、护照
+    - 录取通知书
+    - 英文核酸检测报告
+    - 英文疫苗接种证明
+    - 入境函2份
+    - 签证eval2份
+    - travel Authortzotion letter 2份
