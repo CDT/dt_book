@@ -18,3 +18,5 @@
 | **Modules** | Large number of modules | Fewer modules |
 | **Compatibility** | Works well with most applications | May require additional configuration |
 | **Security** | More vulnerabilities | Fewer vulnerabilities |
+
+## Nginx
