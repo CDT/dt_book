@@ -1,3 +1,6 @@
+---
+outline: 'deep'
+---
 # Nginx & Apache
 
 ![Nginx VS Apache](/images/nvsa.webp)
@@ -66,7 +69,7 @@ nginx -s reopen # reopening the log files
 
 ### Configuration
 
-- ** Structure: **
+- **Structure:**
 
 ``` nginx
 # Main context - Global settings
@@ -133,4 +136,70 @@ http {
 
 - Nginx is designed as a container of modules. There are two types of modules:
   - **Core modules.** These are modules that are shipped with the nginx distribution. For example, `http` and `events` module.
-  - **Third party modules.** 
+  - **Third party modules.** These are modules developed by the community and not built-in modules. For example, `ngx_pagespped`.
+
+### Virtual Hosts
+
+With virtual hosts, you can serve multiple sites on a single server. Aka, server blocks.
+
+Demo multiple server blocks configuration:
+
+``` nginx
+# Nginx will determine which server block to use based on the 
+# server_name directive and the requested domain in the HTTP request.
+
+# Server 1:
+server {
+    listen 80;
+    server_name example.com www.example.com;
+
+    location / {
+        # Configuration for example.com
+    }
+}
+
+# Server 2:
+server {
+    listen 80;
+    server_name another-domain.com;
+
+    location / {
+        # Configuration for another-domain.com
+    }
+}
+
+# Default server:
+
+server {
+    listen 80 default_server;
+    # The underscore (_) in server_name _; acts as a wildcard, 
+    # matching requests without a specific domain name.
+    server_name _;
+
+    location / {
+        # Configuration for the default server
+    }
+}
+```
+
+- SSL Virtual host example:
+
+``` nginx
+server {
+    listen 443 ssl;
+    server_name secure.example.com;
+
+    ssl_certificate /path/to/certificate.crt;
+    ssl_certificate_key /path/to/private-key.key;
+
+    location / {
+        # Configuration for the secure virtual host
+    }
+}
+```
+
+### Pitfalls
+
+- 1. **Do not use single backslash for windows path**
+
+  The root directive `root D:\dev\nginx_root;` won't work on windows as `\n` is interpreted as a special character (which is change line) instead of normal characters. Use slash or double backslash `\\` instead: `root D:/dev/nginx_root;` or `root D:\\dev\\nginx_root;`.
