@@ -66,4 +66,71 @@ nginx -s reopen # reopening the log files
 
 ### Configuration
 
+- ** Structure: **
 
+``` nginx
+# Main context - Global settings
+# user directive, which is a simple directive
+user www-data;  # Runs worker processes as this user
+worker_processes auto; # Number of worker processes
+
+# events directive, which is a block directive, also called a context
+events {
+  # worker_connections directive, which is a simple directive, 
+  # contained in a block directive
+  worker_connections 768; # Max connections per worker process
+}
+
+http {
+
+  # MIME types 
+  include mime.types;
+
+  # Logging
+  access_log /var/log/nginx/access.log;
+  error_log /var/log/nginx/error.log;
+
+  # Server blocks
+  server {
+
+    # Listens on port 80 for requests to example.com
+    listen 80; 
+    server_name example.com;
+
+    # Document root directory
+    root /var/www/example.com;
+
+    # Default index file
+    index index.html;
+
+    location / {
+      # Handles requests to document root
+      try_files $uri $uri/ =404; 
+    }
+
+    location /images/ {
+      # Handles requests for images
+      try_files $uri $uri/ =404;
+    }
+
+  }
+
+  # Another server block
+  server {
+    listen 80;
+    server_name example.org;
+
+    root /var/www/example.org;
+    index index.htm;
+
+    # ...
+  }
+
+}
+```
+
+### Modules
+
+- Nginx is designed as a container of modules. There are two types of modules:
+  - **Core modules.** These are modules that are shipped with the nginx distribution. For example, `http` and `events` module.
+  - **Third party modules.** 
