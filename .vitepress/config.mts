@@ -51,6 +51,11 @@ export default defineConfig({
             { text: 'Texture', link: '/music/theory/texture' },
             { text: 'Timbre', link: '/music/theory/timbre' }
           ]
+        }, {
+          text: 'Sheet music',
+          items: [
+            { text: 'Pachelbel\'s Canon', link: '/music/sheet/canon' }
+          ]
         }
       ],
       '/tech/': [{
