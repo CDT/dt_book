@@ -21,7 +21,20 @@ A PWA is a normal web application with these additional assets:
 2. `service worker`: The service worker is what makes the application work offline while making sure the application is always up to date. 
 3. `https`: [Service workers are restricted to secure contexts](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts), so HTTPS protocol is mandatory for PWA.
 
+## A simple PWA
 
-## Demo: Menstrual Tracker
+### 1. HTML
 
-[Download code](/misc/ct.zip)
+
+
+## Demos
+
+[↓ Download Menustrual Tracker](/misc/ct.zip)
+
+## QA
+
+### Why my application is not installable?
+
+- **Question:** Why is there no install button at the right corner of the address bar?
+
+- **Answer:** To troubleshoot this bug, use **Lighthouse** chrome extension to analyze web page loading results. After the analyzing is complete, a report will be generated and it will have a `PWA` section displaying errors including why this app is not installable.
