@@ -25,7 +25,70 @@ A PWA is a normal web application with these additional assets:
 
 ### 1. HTML
 
+Here is a simplest html page that displays three images in a row:
 
+``` html
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Gallery</title>
+  <style>
+    img {
+      width: 30%; 
+      float: left;
+      margin: 1.5%;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="https://i.imgur.com/J7C7MU8.jpg" alt="Image 1">
+  <img src="https://i.imgur.com/8P6DoH9.jpg" alt="Image 2"> 
+  <img src="https://i.imgur.com/nc2EUNS.jpg" alt="Image 3">
+
+</body>
+</html>
+```
+
+### 2. Add `manifest.json`
+
+To enable PWA for the web page, add a file named `manifest.json` (name of the file doesn't matter but `manifest` is preferred as a convention) and a reference to `manifest.json` in the html page:
+
+``` html
+<!-- index.html -->
+<head>
+  <title>Image Gallery</title>
+  <!-- add a reference to manifest.json -->
+  <link rel="manifest" href="manifest.json">
+```
+
+`manifest.json`: 
+
+``` json
+{
+  "name": "Image Gallery",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone"
+}
+```
+
+Notice that this is a minimal version of `manifest.json`. All of the following properties are required for the web page to be installable as a PWA app:
+
+- `name`: Name of the PWA app.
+- `icons`: Specify icon images of different sizes, for use in different contexts. For example, a smaller low-resolution icon for the address bar, and a higher-resolution icon for the home screen. The minimal size for the image and the minimal value of the `sizes` parameter is `144x144`. 
+- `start_url`: As the name suggests, the starting url of the PWA app.
+- `display`:  The display mode changes how much of browser UI is shown to the user and can range from browser (when the full browser window is shown) to fullscreen (when the app is fullscreened). [Look up available values here](https://developer.mozilla.org/en-US/docs/Web/Manifest/display#values)
+
+### 3. Register the PWA
+
+### 4. Service Worker
 
 ## Demos
 
