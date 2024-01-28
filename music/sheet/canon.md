@@ -16,9 +16,9 @@
 
 [⬇ Download MusicXML](/sheet/canon_in_d_simple.mxl)
 
-[⬇ Download MIDI](/sheet/canon_in_d_simple.mid)
+<a href='/sheet/canon_in_d_simple.mid'>⬇ Download Midi</a>
 
-[⬇ Download Audio](/sheet/canon_in_d_simple.mp3)
+<a href='/sheet/canon_in_d_simple.mp3' target='_blank'>⬇ Download Audio</a>
 
 
 
@@ -39,9 +39,9 @@
 
 [⬇ Download MusicXML](/sheet/canon_in_d_intermediate.mxl)
 
-[⬇ Download MIDI](/sheet/canon_in_d_intermediate.mid)
+<a href='/sheet/canon_in_d_intermediate.mid'>⬇ Download Midi</a>
 
-[⬇ Download Audio](/sheet/canon_in_d_intermediate.mp3)
+<a href='/sheet/canon_in_d_intermediate.mp3' target='_blank'>⬇ Download Audio</a>
 
 
 ## Canon in C
@@ -56,11 +56,11 @@
 
 ### Others
 
-[⬇ Download Musescore](/sheet/canon_in_c.mscz)
+[⬇ Download Musescore](/sheet/canon_in_c.mscz){target="_self"}
 
-[⬇ Download MusicXML](/sheet/canon_in_c.mxl)
+[⬇ Download MusicXML](/sheet/canon_in_c.mxl){target="_self"}
 
-[⬇ Download MIDI](/sheet/canon_in_c.mid)
+<a href='/sheet/canon_in_c.mid'>⬇ Download Midi</a>
 
-[⬇ Download Audio](/sheet/canon_in_c.mp3)
+<a href='/sheet/canon_in_c.mp3' target='_blank'>⬇ Download Audio</a>
 
