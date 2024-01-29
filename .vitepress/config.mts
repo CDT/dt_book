@@ -54,7 +54,8 @@ export default defineConfig({
         }, {
           text: 'Sheet music',
           items: [
-            { text: 'Pachelbel\'s Canon', link: '/music/sheet/canon' }
+            { text: 'Pachelbel\'s Canon', link: '/music/sheet/canon' },
+            { text: 'Bizet\'s Minuet', link: '/music/sheet/bizet_minuet' }
           ]
         }
       ],
