@@ -66,7 +66,8 @@ export default defineConfig({
         text: '前端',
         items: [
           { text: 'Vue', link: '/tech/frontend/vue' },
-          { text: 'PWA', link: '/tech/frontend/pwa' }
+          { text: 'PWA', link: '/tech/frontend/pwa' },
+          { text: 'Typescript', link: '/tech/frontend/typescript' }
         ]
       }, {
         text: '后端',

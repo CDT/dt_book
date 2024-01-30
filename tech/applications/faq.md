@@ -81,3 +81,86 @@ jobs:
 ```
 
 注意`config.mts`的`base`也要配置为项目名称，格式为`/project_name/`。
+
+## Visual Studio Code `launch.json` debug配置
+
+### `nodemon`配置：
+
+``` json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "nodemon",
+      "name": "Launch Program",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "console": "integratedTerminal",
+      "program": "${workspaceFolder}\\main.js"
+    }
+  ]
+}
+```
+
+### 运行参数配置 
+
+- 如果debug需要参数，则加入以下内容：
+- 例如`python main.py --verbose --name Test`: 
+
+``` json
+"args": ["--verbose", "--name=Test"]
+```
+
+### Typescript配置
+
+- Typescript debug配置：
+
+``` json
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "node",
+          "request": "launch",
+          "name": "Build Project",
+          "program": "${workspaceFolder}\\app.ts", // Entry file of the app
+          "preLaunchTask": "npm: build", // Task before launching debug. Calls `build` script of package.json
+          "sourceMaps": true, // use sourcemaps from `out` folder
+          "smartStep": true, // skip “uninteresting” code in the debugger (e.g. compiled JS-files)
+          "internalConsoleOptions": "openOnSessionStart", // open the debug console during a debugging session
+          "outFiles": [
+              "${workspaceFolder}/out/**/*.js" // place where the debugger looks for the sourceMap files
+          ]
+      }
+  ]
+}
+```
+
+- 对应的`package.json`配置如下：
+
+``` json
+{
+  "name": "mytask",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc"
+  }
+}
+```
+
+- 对应的`tsconfig.json`配置如下：
+
+``` json
+{
+  "compilerOptions": {
+      "outDir": "./out",
+      "rootDir": "./",
+      "sourceMap": true, // It is important to set the sourceMap-property to true. Sourcemap files are required to map the TypeScript code to the JavaScript code in the debugger later.
+      "moduleResolution": "node",
+      "target": "es5"
+  }
+}
+```
