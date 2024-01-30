@@ -165,6 +165,16 @@ outline: [2, 3]
   - [学校官网](https://www.utp.edu.my/)
   - [项目列表、申请条件及申请入口](https://admission.utp.edu.my/)
 
+## 专业选择
+
+### 参考文章
+
+[马来西亚留学专业怎么选？](https://www.zhihu.com/tardis/zm/art/630071232?source_id=1003)
+
+[新东方马来西亚选专业文章合集](https://liuxue.xdf.cn/Malaysia/postgraduate_zyzd/)
+
+[让留学生肠子悔青了的十大马来西亚大学专业](https://www.sohu.com/a/521843216_556247)
+
 
 ## 相关网站
 

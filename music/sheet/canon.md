@@ -37,6 +37,26 @@
 
 <a href='/sheet/canon_in_d_intermediate.mid'>⬇ Download Midi</a>
 
+
+## Canon in D (Intermediate Version 2)
+
+### Musescore
+
+<iframe width="100%" height="394" src="https://musescore.com/user/11652586/scores/6130674/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/11652586/scores/6130674" target="_blank">CANON in D by Johann Pachelbel - BreezePiano</a> by <a href="https://musescore.com/user/11652586">BreezePiano</a></span>
+
+### Sheet music
+
+<iframe width="100%" height="1080px" src="/sheet/canon_in_d_intermediate_v2.pdf" />
+
+### Others
+
+[⬇ Download Musescore](/sheet/canon_in_d_intermediate_v2.mscz)
+
+[⬇ Download MusicXML](/sheet/canon_in_d_intermediate_v2.mxl)
+
+<a href='/sheet/canon_in_d_intermediate_v2.mid'>⬇ Download Midi</a>
+
+
 ## Canon in C
 
 ### Musescore
@@ -73,3 +93,21 @@
 [⬇ Download MusicXML](/sheet/Canon_in_C_My_Sassy_Girl_2001_Piano_Scene.mxl)
 
 <a href='/sheet/Canon_in_C_My_Sassy_Girl_2001_Piano_Scene.mid'>⬇ Download Midi</a>
+
+## Canon in D Guitar
+
+### Musescore
+
+<iframe width="100%" height="394" src="https://musescore.com/user/28842914/scores/5154865/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/28842914/scores/5154865" target="_blank">Canon in D – Pachelbel – Guitar Tab</a> by <a href="https://musescore.com/user/28842914">yonah_ag</a></span>
+
+### Sheet music
+
+<iframe width="100%" height="1080px" src="/sheet/Canon_in_D__Pachelbel__Guitar_Tab.pdf" />
+
+### Others
+
+[⬇ Download Musescore](/sheet/Canon_in_D__Pachelbel__Guitar_Tab.mscz)
+
+[⬇ Download MusicXML](/sheet/Canon_in_D__Pachelbel__Guitar_Tab.mxl)
+
+<a href='/sheet/Canon_in_D__Pachelbel__Guitar_Tab.mid'>⬇ Download Midi</a>

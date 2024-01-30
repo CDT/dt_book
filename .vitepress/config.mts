@@ -55,7 +55,9 @@ export default defineConfig({
           text: 'Sheet music',
           items: [
             { text: 'Pachelbel\'s Canon', link: '/music/sheet/canon' },
-            { text: 'Bizet\'s Minuet', link: '/music/sheet/bizet_minuet' }
+            { text: 'Bizet\'s Minuet', link: '/music/sheet/bizet_minuet' },
+            { text: 'One Summer\'s Day', link: '/music/sheet/one_summers_day' },
+            { text: 'Merry-Go-Round of Life', link: '/music/sheet/merry_go_round_of_life' }
           ]
         }
       ],
@@ -92,7 +94,7 @@ export default defineConfig({
         link: '/literature/poetry'
       }],
       '/misc/': [
-      { text: '其他', link : '/misc' },  
+      { text: '概述', link : '/misc/' },  
       {
         text: '新能源',
         items: [
@@ -111,6 +113,11 @@ export default defineConfig({
           { text: '案例', items: [
             { text: '案例1：美术生申请马来西亚大学', link: '/misc/university_application/cases/case1.md'}
           ]}
+        ]
+      }, {
+        text: '其他',
+        items: [
+          { text: 'Insomnia Treatment', link: '/misc/others/insomnia_treatment' }
         ]
       }]
     },
