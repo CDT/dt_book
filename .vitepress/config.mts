@@ -83,6 +83,7 @@ export default defineConfig({
         items: [
           { text: 'Flarum', link: '/tech/applications/flarum' },
           { text: 'Linux系统操作', link: '/tech/applications/linux' },
+          { text: 'Git', link: '/tech/applications/git' },
           { text: 'FAQ', link: '/tech/applications/faq' }
         ]
       }],
