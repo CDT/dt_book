@@ -76,7 +76,7 @@ export default defineConfig({
         items: [
           { text: 'Node.js', link: '/tech/backend/nodejs' },
           { text: 'Nginx & Apache', link: '/tech/backend/nginx_apache' },
-          { text: 'Snippets', link: '/tech/backend/snippets' },
+          { text: 'Snippets', link: '/tech/backend/snippets' }
         ]
       }, {
         text: '应用',
@@ -84,6 +84,7 @@ export default defineConfig({
           { text: 'Flarum', link: '/tech/applications/flarum' },
           { text: 'Linux系统操作', link: '/tech/applications/linux' },
           { text: 'Git', link: '/tech/applications/git' },
+          { text: 'Windows', link: '/tech/applications/windows' },
           { text: 'FAQ', link: '/tech/applications/faq' }
         ]
       }],
