@@ -1134,3 +1134,29 @@ function keepProcessing(): never {
 ```
 
 The `throwError` function throws an error and `keepProcessing` function is always executing and shall never return a value.
+
+
+### Why does vscode indicate errors on $target.event.value if I use typescript vue?
+
+This code is error-free:
+
+``` vue
+<script setup>
+const props = defineProps(['modelValue'])
+const emit = defineEmits(['update:modelValue'])
+</script>
+
+<template>
+  <input
+    :value="props.modelValue"
+    @input="emit('update:modelValue', $event.target.value)"
+  />
+</template>
+```
+
+But if I change `<script setup>` to `<script setup lang="ts">`, two errors will pop up:
+
+1. '$event.target' is possibly 'null'.ts(18047)
+2. Property 'value' does not exist on type 'EventTarget'.ts(2339)
+
+Why does vscode indicate the above two errors?
