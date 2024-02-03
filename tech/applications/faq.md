@@ -167,3 +167,14 @@ jobs:
 
 ## Visual Studio Code 远程开发
 
+[安装教程](https://code.visualstudio.com/docs/remote/ssh)
+
+1. [在远程机器上安装Windows的Open SSH Server](https://learn.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse)
+
+2. 在本地机器上启用SSH，并用`ssh username@remotehost`测试是否能连上远程机器
+
+3. 在本地VSCode上点击`F1`，选择`Remote-SSH: Connect to Host1...`，按照提示一步一步操作即可
+
+4. 在本地VSCode下方的`PORTS`页面，进行适当的转口转发
+
+完成！VSCode的远程开发配置就是如此简单。VSCode YYDS😎

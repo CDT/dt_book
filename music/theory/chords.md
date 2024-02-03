@@ -24,6 +24,8 @@ These are three-note chords and are the most fundamental. There are four primary
  
 - **Augmented Triad:** Has a root, a major third, and an augmented fifth. C-E-G♯ is an example.
 
+[👉 How to memorize piano trids](https://www.youtube.com/watch?v=06pyLmYs-1g)
+
 ### Sevenths
 
 These are four-note chords. Adding a seventh note to a triad creates these:
