@@ -94,6 +94,9 @@ export default defineConfig({
       },{
         text: '诗词',
         link: '/literature/poetry'
+      },{
+        text: '增广贤文',
+        link: '/literature/zgxw'
       }],
       '/misc/': [
       { text: '概述', link : '/misc/' },  
