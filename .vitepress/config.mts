@@ -69,7 +69,9 @@ export default defineConfig({
         items: [
           { text: 'Vue', link: '/tech/frontend/vue' },
           { text: 'PWA', link: '/tech/frontend/pwa' },
-          { text: 'Typescript', link: '/tech/frontend/typescript' }
+          { text: 'Typescript', link: '/tech/frontend/typescript' },
+          { text: 'Responsive Web Design', link: '/tech/frontend/responsive' },
+          { text: 'CSS', link: '/tech/frontend/css' }
         ]
       }, {
         text: '后端',
