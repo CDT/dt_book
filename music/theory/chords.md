@@ -26,6 +26,13 @@ These are three-note chords and are the most fundamental. There are four primary
 
 [👉 How to memorize piano trids](https://www.youtube.com/watch?v=06pyLmYs-1g)
 
+| Pattern | Chords |
+|:---:|:---:|
+| W-W-W | C F G |
+| W-B-W | D E A |
+| B-W-B | C# D# G# |
+| ODD | F# A# B |
+
 ### Sevenths
 
 These are four-note chords. Adding a seventh note to a triad creates these:
