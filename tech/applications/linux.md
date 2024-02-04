@@ -7,7 +7,7 @@
 
 **Description :lady_beetle:**: My script below does not work property, no proxy is displayed with `echo $http_proxy` aftering running the script with `./[script name].sh`: 
 
-``` shell
+``` bash
 #!/bin/sh
 export http_proxy=http://1.2.3.4:888
 ```
@@ -19,14 +19,21 @@ export http_proxy=http://1.2.3.4:888
 
 ## Create Shared Folder on Linux
 
-### CentOS:
+### SMB
 
-``` shell
+``` bash
+# 0. Allow ports
+firewall-cmd --permanent --add-port=139/tcp
+firewall-cmd --permanent --add-port=445/tcp
+firewall-cmd --reload
+```
+
+``` bash
 # 1. install packages
 sudo yum install samba samba-client samba-common 
 ```
 
-``` shell
+``` bash
 # 2. Edit /etc/samba/smb.conf
 # Add a new entry:
 [share1]
@@ -35,41 +42,19 @@ valid users = username
 read only = no
 ```
 
-``` shell
+``` bash
 # 3. Configure samba user
 adduser username
 sudo smbpasswd -a username
 ```
 
-``` shell
+``` bash
 # 4. restar samba
 sudo systemctl restart smb
 ```
 
-## Firewall
+### FTP
 
-### CentOS
-
-**1. List open ports:**
-
-``` bash
-netstat -lntu
-```
-
-**Demo output:**
-
-``` bash
-Proto Recv-Q Send-Q Local Address           Foreign Address         State
-tcp        0      0 0.0.0.0:445             0.0.0.0:*               LISTEN
-tcp        0      0 0.0.0.0:9443            0.0.0.0:*               LISTEN
-udp        0      0 192.168.42.255:137      0.0.0.0:*
-udp        0      0 192.168.42.72:137       0.0.0.0:*
-```
-
-
-## FTP
-
-### CentOS
 
 **1. Install the FTP server software (vsftpd):**
 
@@ -121,3 +106,40 @@ sudo firewall-cmd --reload
 sudo adduser ftpuser
 sudo passwd ftpuser
 ```
+
+## Create user and enable sudo
+
+1. Create user
+
+``` bash
+addUser username
+passwd username
+```
+
+2. Configure `wheel` group
+
+``` bash
+visudo
+```
+
+Check if the following line is commented, if so uncomment that line:
+
+``` bash
+%wheel ALL=(ALL) ALL
+```
+
+3. Add user to `wheel` group
+
+``` bash
+usermod -aG wheel username
+```
+
+## Frequently Used Commands 
+
+| Usage | Command | Description |
+|:---:|:---:|:---|
+| Show network status | `netstat -tulp` | Includnig open ports and corresponding PID |
+| Expose port | `firewall-cmd --permanent --add-port=80/tcp` | run `firewall-cmd --reload` after rule added |
+| List open ports for firewall | `firewall-cmd --list-ports` | |
+| Disable SELinux | `sudo setenforce 0` | Just feel free to disable it as SELinux is over complex |
+
