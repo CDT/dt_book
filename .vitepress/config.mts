@@ -28,6 +28,12 @@ export default defineConfig({
             { text: '古代史', link: '/history/china/ancient' },
             { text: '近代史', link: '/history/china/contemporary' },
             { text: '现代史', link: '/history/china/modern' },
+            { text: '100个历史典故', link: '/history/china/100' },
+          ]
+        }, {
+          text: '世界史',
+          items: [
+            { text: '世界大战', link: '/history/world/war' }
           ]
         }
       ],   
