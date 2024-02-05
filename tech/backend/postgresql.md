@@ -49,15 +49,6 @@ sudo yum clean all
 ```
 :::
 
-安装完成之后，系统初始属性如下：
-
-```
-端口：5432
-监听IP：127.0.0.1
-用户名：`？？？`
-密码：？？？
-```
-
 修改配置文件，在`0.0.0.0`上监听：
 
 ``` bash
@@ -72,6 +63,14 @@ listen_addresses = '*'
 sudo vim /var/lib/pgsql/15/data/pg_hba.conf
 # 找到 host all all 127.0.0.1/32，修改127.0.0.1/32为0.0.0.0/0
 host all all 0.0.0.0/0 [原加密方法不变]
+```
+
+设置`postgres`账号的密码（也可以创建其他账号，同理）：
+
+``` bash
+su postgres
+psql
+ALTER USER postgres PASSWORD '[密码]'
 ```
 
 重启PostgreSQL:
@@ -109,3 +108,29 @@ docker run -p 80:80 \
     -e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' \
     -d dpage/pgadmin4
 ```
+
+## FAQ
+
+### What is the maintenance database?
+
+The maintenance database in PostgreSQL is a system database used for managing and maintaining the PostgreSQL server itself. 
+
+- It is created automatically when PostgreSQL is installed and cannot be dropped.
+
+- The default name is 'postgres' but can be renamed during initialization with the --maintenance-db option.
+
+- It contains objects like tables, views, functions etc used by the server for internal tasks. Some examples:
+
+    - pg_catalog - System tables and views exposing metadata about objects in all databases.
+
+    - information_schema - Standard SQL information schema views.
+
+    - pg_statistic - Table tracking statistics used by the query planner.
+
+- By default, only the postgres superuser account can connect to the maintenance db. It contains no user objects.
+
+- Critical server tasks like Vacuuming, Analyzing, Logging happen through maintenance_work tables in this database. 
+
+- It is advisable not to modify objects in the maintenance db unless you fully understand the implications. Changes may cause instability.
+
+So in summary, the postgresql maintenance database is a dedicated system database used internally by the PostgreSQL server for management and maintenance tasks. It is created at installation time and should generally not be modified directly.
