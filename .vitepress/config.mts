@@ -78,6 +78,8 @@ export default defineConfig({
         items: [
           { text: 'Node.js', link: '/tech/backend/nodejs' },
           { text: 'Nginx & Apache', link: '/tech/backend/nginx_apache' },
+          { text: 'PostgreSQL', link: '/tech/backend/postgresql' },
+          { text: 'Docker', link: '/tech/backend/docker' },
           { text: 'Snippets', link: '/tech/backend/snippets' }
         ]
       }, {

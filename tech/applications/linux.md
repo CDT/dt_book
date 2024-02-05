@@ -134,6 +134,25 @@ Check if the following line is commented, if so uncomment that line:
 usermod -aG wheel username
 ```
 
+## Switch to a color scheme with font color other than dark blue
+
+List the color schemes available:
+
+``` bash
+## NN stands for your version
+ls /usr/share/vim/vimNN/colors/
+```
+
+Start vim and switch to one of the color schemes. Use the `:color [scheme name]` command.
+
+For example, `:color desert` will switch to `desert` scheme.
+
+To permanently change the color scheme, edit `~/.vimrc` and add the folowing line:
+
+```
+colorscheme [scheme name]
+```
+
 ## Frequently Used Commands 
 
 | Usage | Command | Description |
