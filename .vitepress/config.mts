@@ -65,6 +65,15 @@ export default defineConfig({
             { text: 'One Summer\'s Day', link: '/music/sheet/one_summers_day' },
             { text: 'Merry-Go-Round of Life', link: '/music/sheet/merry_go_round_of_life' }
           ]
+        }, {
+          text: 'Instruments',
+          items: [
+            { text: 'Piano', link: '/music/instruments/piano' },
+            { text: 'Guitar', link: '/music/instruments/guitar' },
+            { text: 'Harmonica', link: '/music/instruments/harmonica' },
+            { text: 'Melodica', link: '/music/instruments/melodica' },
+            { text: 'Recorder', link: '/music/instruments/recorder' }
+          ]
         }
       ],
       '/tech/': [{
@@ -107,6 +116,9 @@ export default defineConfig({
       },{
         text: '增广贤文',
         link: '/literature/zgxw'
+      },{
+        text: '摘录段落',
+        link: '/literature/excerpts'
       }],
       '/misc/': [
       { text: '概述', link : '/misc/' },  
