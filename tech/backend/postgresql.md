@@ -1,3 +1,6 @@
+---
+outline: 'deep'
+---
 # PostgreSQL
 
 ![PostgreSQL](/images/postgresql.webp)
@@ -84,7 +87,7 @@ sudo systemctl restart postgresql-15.service
 ``` bash
 firewall-cmd --permanent --add-port=5432/tcp
 firewall-cmd --reload
-```
+````
 
 ## 管理工具：pgAdmin
 
@@ -108,6 +111,69 @@ docker run -p 80:80 \
     -e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' \
     -d dpage/pgadmin4
 ```
+
+### pgAdmin 4 Docker配置文件
+
+运行`docker exec -it [image_name] sh`进入镜像内部shell，默认路径下有两个文件：
+
+  - `config.py`: General configuration file for pgAdmin 4.
+  - `config_distro.py`:  Settings specified by [docker environment variables PGADMIN_CONFIG_*](https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html)。
+
+下面是`config.py`中日志文件相关配置：
+
+``` python
+##########################################################################
+# Log settings
+##########################################################################
+
+# Debug mode?
+DEBUG = False
+
+# Application log level - one of:
+#   CRITICAL 50
+#   ERROR    40
+#   WARNING  30
+#   SQL      25
+#   INFO     20
+#   DEBUG    10
+#   NOTSET    0
+CONSOLE_LOG_LEVEL = logging.WARNING
+FILE_LOG_LEVEL = logging.WARNING
+
+# Log format.
+CONSOLE_LOG_FORMAT = '%(asctime)s: %(levelname)s\t%(name)s:\t%(message)s'
+FILE_LOG_FORMAT = '%(asctime)s: %(levelname)s\t%(name)s:\t%(message)s'
+
+# Log file name. This goes in the data directory, except on non-Windows
+# platforms in server mode.
+if SERVER_MODE and not IS_WIN:
+    LOG_FILE = '/var/log/pgadmin/pgadmin4.log'
+else:
+    LOG_FILE = os.path.join(DATA_DIR, 'pgadmin4.log')
+
+# Log rotation setting
+# Log file will be rotated considering values for LOG_ROTATION_SIZE
+# & LOG_ROTATION_AGE. Rotated file will be named in format
+# - LOG_FILE.Y-m-d_H-M-S
+LOG_ROTATION_SIZE = 10  # In MBs
+LOG_ROTATION_AGE = 1440  # In minutes
+LOG_ROTATION_MAX_LOG_FILES = 90  # Maximum number of backups to retain
+```
+
+请注意`config.py`无法直接修改，如果要修改配置，[需要使用环境变量`PGADMIN_CONFIG_*`来替换`config.py`中对应的配置](https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html)。
+
+例子：
+
+``` bash
+docker run -p 80:80 \
+    -e 'PGADMIN_DEFAULT_EMAIL=user@domain.com' \
+    -e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' \
+    -e 'PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10' \
+    -e 'PGADMIN_CONFIG_FILE_LOG_LEVEL=10' \
+    -d dpage/pgadmin4
+```
+
+其中，10等于`logging.DEBUG`。
 
 ## FAQ
 

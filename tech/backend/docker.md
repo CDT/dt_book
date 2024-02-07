@@ -35,6 +35,47 @@ sudo docker run hello-world
 
 If you see `Hello from Docker!`then your Docker installation is complete.
 
+## Core Concepts
+
+### Volume and Mounts
+
+Docker allows you to create volumes or bind mounts to share data between the host system and the container.
+
+**Volumes:** These are managed by Docker and are stored outside the container’s filesystem. Volumes persist even if the container is removed. You can use volumes to store data that needs to be shared across containers or preserved between container restarts.
+
+**Bind Mounts:** These directly map a directory or file from the host system into the container. Bind mounts allow you to access files from the host system within the container. Changes made in the container are reflected on the host system and vice versa.
+
+Use `docker inspect [image_name]` to show the detailed information of a docker image, find the `Mounts` and `Volumes` property of the returned json.
+
+Here is an example `Mounts` property:
+
+``` json
+"Mounts": [
+    {
+        "Type": "volume",
+        "Name": "362e91749ff026850e4def0dd6e7a755b48fbe2b34993545ea903bfa768a8f0d",
+        "Source": "/var/lib/docker/volumes/362e91749ff026850e4def0dd6e7a755b48fbe2b34993545ea903bfa768a8f0d/_data",
+        "Destination": "/var/lib/pgadmin",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+    }
+]
+
+"Config": {
+  "Volumes": [
+    "/var/lib/pgadmin": {}
+  ]
+}
+```
+
+In the above mount,
+  - docker mapped an internal volume of an image to the external file storage system of the host. In the image's shell, the path of the volume is `/var/lib/pgadmin`, in the host's shell, the path is the long path identified by the `Source` property.
+
+  - The volume is associated with the path `/var/lib/pgadmin`. The empty object `{}` indicates that this volume is uninitialized (i.e., it doesn’t have any pre-existing data).
+
+
 ## Operation and Maintenance
 
 ### Docker exec
@@ -55,3 +96,4 @@ docker exec -it [image_name] sh
 |:---|:---:|:---|
 | List running images | `docker ps` | |
 | Show logs | `docker logs [image_name] [-f] [--tail 10]` | `--tail 10` will only print the last 10 lines of logs. `-f` is follow mode which will keep tailing the logs |
+| Show low-level information on Docker objects | `docker inspect [image_name]`| |
