@@ -2,6 +2,8 @@
 outline: 'deep'
 ---
 
+![vault boy coding](/images/vaultboycoding.jpg)
+
 # Snippets
 
 ## Node.js static server
@@ -42,3 +44,59 @@ http-server /path/to/dist -p 8888
 ## PostgreSQL
 
 - 基于[postgres](https://github.com/porsager/postgres)项目
+
+基本功能代码：
+
+::: details code
+
+``` js
+const postgres = require('postgres')
+
+const sql = postgres('postgres://postgres:postgres123@192.168.248.98:5432/reportcenter')
+
+// create a table first:
+/*
+create table emps (
+  name varchar2(100),
+  age integer
+)
+*/
+
+const insertDemo = async () => {
+  const xs = await sql`
+    insert into emps (
+      name, age
+    ) values (
+      'Murray', 68
+    )
+
+    returning *
+  `
+  console.log(xs)
+}
+
+const selectDemo = async () => {
+  const name = 'Mur', age = 60
+  const users = await sql`
+    select name, age from emps where
+      name like ${ name + '%' }
+      and age > ${ age }
+  `
+  console.log(users)
+}
+
+const dynamicColumnSelection = async () => {
+  const columns = ['name', 'age']
+  console.log(
+    await sql`
+      select ${ sql(columns) } from emps
+    `
+  )
+  // This will result in:
+  // select "name", "age" from users
+}
+
+dynamicColumnSelection()
+```
+
+:::
