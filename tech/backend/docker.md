@@ -1,3 +1,7 @@
+---
+outline: 'deep'
+---
+
 # Docker
 
 ![Docker logo](/images/vaultboy_docker.jpg)
@@ -45,7 +49,7 @@ Docker allows you to create volumes or bind mounts to share data between the hos
 
 **Bind Mounts:** These directly map a directory or file from the host system into the container. Bind mounts allow you to access files from the host system within the container. Changes made in the container are reflected on the host system and vice versa.
 
-Use `docker inspect [image_name]` to show the detailed information of a docker image, find the `Mounts` and `Volumes` property of the returned json.
+Use `docker inspect [container_name]` to show the detailed information of a docker image, find the `Mounts` and `Volumes` property of the returned json.
 
 Here is an example `Mounts` property:
 
@@ -85,15 +89,70 @@ In the above mount,
 To enter an interative shell inside a docker container, use this command: 
 
 ``` bash
-docker exec -it [image_name] sh
+docker exec -it [container_name] sh
 ```
 
 `-it` stands for `interactive` and `tty`. Sometimes, `sh` will not work, try `bash` instead.
 
-## Frequently Used Commands
+### Running an image and starting a container
+
+Take `hello-world` image as an example.
+
+Pull the image:
+
+``` bash
+docker pull hello-world
+```
+
+Run the image:
+
+``` bash
+docker run hello-world
+```
+
+Running the image will create containers. See all containers created: 
+
+``` bash
+docker ps -a
+```
+
+```
+[root@localhost ~]# docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+99a91d9b2d02   hello-world   "/hello"   42 seconds ago   Exited (0) 42 seconds ago             goofy_visvesvaraya
+```
+
+When the `hello-world` image runs, a container named `goofy_visvesvaraya` is created and will remain after the process terminated.
+If your image contains useful data like configuration and you do not want to generate the data again each time the image runs, just start the previous container.
+
+Start a previous container: 
+
+``` bash
+docker start [container_name]
+```
+
+Let's assume that the `container_name` is `great_newton`.
+
+By default, running the command `docker start great_newton` only echoes the container name and will not show any output.
+
+To see the output, use `docker start -a great_newton` instead. `-a` stands for attach.
+
+To run in an interactive mode, use `docker start -i great_newton`.
+
+### Stopping and removing a container
+
+To stop a container, use `docker stop [container_name]`.
+
+To stop all running containers, use `docker stop $(docker ps -q)`.
+
+To remove a container, use `docker rm [container_name]`.
+
+Stopping a container just kills the process while removing a container completely deletes the container data files. However, images still remain and new containers can still be created.
+
+## Other Frequently Used Commands
 
 | Description | Command | Note |
 |:---|:---:|:---|
 | List running images | `docker ps` | |
-| Show logs | `docker logs [image_name] [-f] [--tail 10]` | `--tail 10` will only print the last 10 lines of logs. `-f` is follow mode which will keep tailing the logs |
-| Show low-level information on Docker objects | `docker inspect [image_name]`| |
+| Show logs | `docker logs [container_name] [-f] [--tail 10]` | `--tail 10` will only print the last 10 lines of logs. `-f` is follow mode which will keep tailing the logs |
+| Show low-level information on Docker objects | `docker inspect [container_name]`| |

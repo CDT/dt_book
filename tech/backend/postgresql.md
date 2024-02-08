@@ -160,20 +160,83 @@ LOG_ROTATION_AGE = 1440  # In minutes
 LOG_ROTATION_MAX_LOG_FILES = 90  # Maximum number of backups to retain
 ```
 
-请注意`config.py`无法直接修改，如果要修改配置，[需要使用环境变量`PGADMIN_CONFIG_*`来替换`config.py`中对应的配置](https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html)。
+请注意`config.py`无法直接修改，如果要修改配置，[需要使用环境变量`PGADMIN_CONFIG_*`来替换`config.py`中对应的配置](https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html)。环境变量中修改的配置会存储在`config_distro.py`中。
 
 例子：
 
 ``` bash
-docker run -p 80:80 \
-    -e 'PGADMIN_DEFAULT_EMAIL=user@domain.com' \
-    -e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' \
-    -e 'PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10' \
-    -e 'PGADMIN_CONFIG_FILE_LOG_LEVEL=10' \
+docker run -p 888:80 \
+    -e 'PGADMIN_DEFAULT_EMAIL=779888925@qq.com' \
+    -e 'PGADMIN_DEFAULT_PASSWORD=86915998' \
+    -e 'PGADMIN_SERVER_JSON_FILE=/root/servers.json'
+    -e 'PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=30' \
+    -e 'PGADMIN_CONFIG_FILE_LOG_LEVEL=30' \
     -d dpage/pgadmin4
 ```
 
-其中，10等于`logging.DEBUG`。
+日志级别如下：
+
+```
+#   CRITICAL 50
+#   ERROR    40
+#   WARNING  30
+#   SQL      25
+#   INFO     20
+#   DEBUG    10
+#   NOTSET    0
+```
+
+::: danger 日志文件到底在哪？
+
+我到现在仍然无法找到docker版本的日志文件的地址，但是可以找到命令行日志，方法如下：
+
+1. 开启命令行日志：启动docker时添加环境变量`PGADMIN_CONFIG_FILE_LOG_LEVEL=10`
+
+2. 打开docker日志：
+``` bash
+docker logs [image_name] -f
+```
+:::
+
+### 运行Docker
+
+``` bash
+docker run -p 888:80 \
+    -e 'PGADMIN_DEFAULT_EMAIL=779888925@qq.com' \
+    -e 'PGADMIN_DEFAULT_PASSWORD=86915998' \
+    -e 'PGADMIN_CONFIG_LOGIN_BANNER="Authorised users only!"' \
+    -e 'PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10' \
+    -e 'PGADMIN_CONFIG_FILE_LOG_LEVEL=10' \
+	-v /root/servers.json:/pgadmin4/servers.json \
+    dpage/pgadmin4
+```
+
+这里将容器的`/pgadmin4/servers.json`映射到本地的`/root/servers.json`中。`servers.json`预定义了服务器连接，不需要手动再录入一遍，下面是一个简单版本的`servers.json`：
+
+``` json
+{
+    "Servers": {
+        "1": {
+            "Name": "Minimally Defined Server 1",
+            "Group": "Server Group 1",
+            "Port": 5432,
+            "Username": "postgres",
+            "Host": "localhost",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        },
+        "2": {
+            "Name": "Minimally Defined Server 2",
+            "Group": "Server Group 1",
+            "Port": 5432,
+            "Username": "postgres",
+            "Host": "192.168.1.101",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        }
+    }
+}
+```
 
 ## FAQ
 

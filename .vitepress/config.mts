@@ -95,7 +95,8 @@ export default defineConfig({
           { text: 'Nginx & Apache', link: '/tech/backend/nginx_apache' },
           { text: 'PostgreSQL', link: '/tech/backend/postgresql' },
           { text: 'Docker', link: '/tech/backend/docker' },
-          { text: 'Snippets', link: '/tech/backend/snippets' }
+          { text: 'Snippets', link: '/tech/backend/snippets' },
+          { text: 'FAQ', link: '/tech/backend/faq' }
         ]
       }, {
         text: '应用',
