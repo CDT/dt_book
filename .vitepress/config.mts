@@ -147,7 +147,9 @@ export default defineConfig({
         items: [
           { text: 'Insomnia Treatment', link: '/misc/others/insomnia_treatment' },
           { text: '段子', link: '/misc/others/skits' },
-          { text: '段子 - 2', link: '/misc/others/skits2' }
+          { text: '段子 - 2', link: '/misc/others/skits2' },
+          { text: '段子 - 3', link: '/misc/others/skits3' },
+          { text: '其他段子', link: '/misc/others/otherskits'}
         ]
       }]
     },
