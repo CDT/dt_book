@@ -62,7 +62,7 @@ http-server /path/to/dist -p 8888
 ``` js
 const postgres = require('postgres')
 
-const sql = postgres('postgres://postgres:postgres123@192.168.248.98:5432/reportcenter')
+const sql = postgres('postgres://username:password@ip:5432/dbname')
 
 // create a table first:
 /*
@@ -277,4 +277,35 @@ const sqlFunction = async () => {
 dynamicTableNameAndColumns()
 ```
 
+:::
+
+- Debugging:
+
+::: details code
+
+``` js
+const postgres = require('postgres')
+
+const sql = postgres('postgres://...', {
+  debug: (connection, query, parameters, paramTypes) => {
+    if (query.includes('pg_')) return // omit queries on native tables
+    console.log('connection: ', connection) // connection is a number, and I don't know its meaning
+    console.log('query: ', query)
+    console.log('parameters: ', parameters)
+    console.log('paramTypes: ', paramTypes) // paramTypes are also numbers, also don't know its meaning
+  }
+})
+
+const selectDemo = async () => {
+  const users = await sql`
+    select
+      *
+    from emps
+    where age in ${ sql([68, 75, 23]) } or name in ${ sql(['John']) }
+  `
+}
+
+
+selectDemo()
+```
 :::
