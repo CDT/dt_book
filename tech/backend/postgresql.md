@@ -263,3 +263,9 @@ The maintenance database in PostgreSQL is a system database used for managing an
 - It is advisable not to modify objects in the maintenance db unless you fully understand the implications. Changes may cause instability.
 
 So in summary, the postgresql maintenance database is a dedicated system database used internally by the PostgreSQL server for management and maintenance tasks. It is created at installation time and should generally not be modified directly.
+
+
+### Why can't I modify the row in pgAdmin 4?
+
+- Check if there is a primary key in your table, if not, you cannot edit the row.
+- Unlike Oracle, PostgreSQL does not have a pseudo column `rowid`. If you don't specify a primary key, pgAdmin cannot identify the row you edit.
