@@ -178,3 +178,47 @@ jobs:
 4. 在本地VSCode下方的`PORTS`页面，进行适当的转口转发
 
 完成！VSCode的远程开发配置就是如此简单。VSCode YYDS😎
+
+
+## npm/yarn相关问题
+
+### 设置代理或者镜像
+
+设置代理：
+
+``` bash
+npm config set proxy http://10.35.51.37:10809
+npm config set https-proxy http://10.35.51.37:10809
+```
+
+取消代理：
+
+``` bash
+npm config rm proxy
+npm config rm https-proxy
+```
+
+设置镜像：
+
+``` bash
+# 腾讯：
+npm config set registry http://mirrors.cloud.tencent.com/npm/
+# 淘宝：
+npm config set registry https://registry.npmmirror.com
+# 华为：
+npm config set registry https://mirrors.huaweicloud.com/repository/npm/
+```
+
+重置为默认镜像：
+
+``` bash
+npm config rm registry
+```
+
+### 安装包时总是出现随机的Received malformed response错误
+
+- 问题：安装包时，总是出现随机的`Received malformed response from registry for [随机包名]`错误或者`Couldn't find package [随机包名] on the npm registry`，怎么处理？
+
+- 出现错误包含随机包名的，属于莫名其妙的网络问题，这种问题没有根治方法，只能进行如下操作：
+  1. 切换网络，用手机热点也行
+  2. 不停地重试

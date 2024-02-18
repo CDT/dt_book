@@ -236,8 +236,13 @@ const dynamicWhere2 = async () => {
     where name is not null ${
       filterAge
         ? olderThan(5)
-        : ``
+        : sql``
     }
+  `)
+
+  // or simpler:
+  console.log(await sql`select * from emps where name is not null
+    ${ filterAge ? sql`and age > ${ x }` : sql`` }
   `)
 
   // Which results in:
