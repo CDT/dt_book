@@ -35,6 +35,11 @@ export default defineConfig({
           items: [
             { text: '世界大战', link: '/history/world/war' }
           ]
+        }, {
+          text: '其他',
+          items: [
+            { text: '商君书', link: '/history/misc/book_of_lord_shang' }
+          ]
         }
       ],   
       '/music/': [{
