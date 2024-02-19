@@ -26,7 +26,7 @@
 
 - 公元前475年 - 公元前221年
 
-1. [商君书](/history/china/misc/book_of_lord_shang.md)
+1. [商君书](/history/misc/book_of_lord_shang.md)
 
 ## 秦汉
 
