@@ -92,7 +92,8 @@ export default defineConfig({
           { text: 'PWA', link: '/tech/frontend/pwa' },
           { text: 'Typescript', link: '/tech/frontend/typescript' },
           { text: 'Responsive Web Design', link: '/tech/frontend/responsive' },
-          { text: 'CSS', link: '/tech/frontend/css' }
+          { text: 'CSS', link: '/tech/frontend/css' },
+          { text: 'Snippets', link: '/tech/frontend/snippets' }
         ]
       }, {
         text: '后端',
