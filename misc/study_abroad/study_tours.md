@@ -31,6 +31,7 @@ outline: 'deep'
 |17| Cheryl Science Education | 0182627220 | 电话未接。 |
 |18| Discovery International Homeschool | | 培训机构，有意向。负责人Sara。 |
 |19| Campus Rangers International School | | 本地生为主 |
+|20| Cambridge English Academy | | 沙巴亚庇英语培训机构 |
 
 ## 已考察学校
 
@@ -56,6 +57,13 @@ outline: 'deep'
 - 同样的， 这个学校的收费也不贵， 是其他学校的一半，下面是一年费用的价格：
 
 ![campus rangers trial class](/images/crtf.jpg)
+
+- 交换生的项目极少， 现在问到的基本都没有短期的交换生项目。不提供交换生的项目， 插班生只对有意向或者有计划长期学习的小朋友开放。 而且名额非常有限。 小学到中学都行。
+- 小红书那个小朋友， 上了三周， 幼儿园上了一周， 一年级上了一周， 二年级上了一周， 三周大概4000RM. 折合人民币6000. 
+
+- 之前都是对本地开放， 今年一月份开始准备对国际生开放。今天会给一些之前的school camps的资料，安排等。还有收费。school camps 2周。 大约4000RM。
+
+- [宣传页下载](/misc/cr_leaflets.zip)
 
 ### Discovery International Homeschool
 
@@ -90,6 +98,14 @@ outline: 'deep'
 我提出来了， 我们可以改良安排， 看能不能在7月份针对中国学生再办一次。
 她问我们有没有类似经验，然后问我们在马来西亚有没有注册公司。 
 她也同意。 如果我们有好的计划它可以进一步跟我们谈。
+
+
+### Cambridge English Academy
+
+- 沙巴亚庇，行程住宿可安排，雅思注册中心
+- 教师水平非常高，都是native speaker
+- 可提供剑桥英语培训及雅思培训
+- [项目简介](/misc/CEA_On-site_Programmes.zip)
 
 
 ## 方案
