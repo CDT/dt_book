@@ -143,21 +143,22 @@ export default defineConfig({
       }, {
         text: '留学',
         items: [
-          { text: '基础', link: '/misc/university_application/' },
-          { text: '马来西亚大学申请', link: '/misc/university_application/malaysia_universities' },
+          { text: '基础', link: '/misc/study_abroad/' },
+          { text: '马来西亚大学申请', link: '/misc/study_abroad/malaysia_universities' },
+          { text: '马来西亚短期游学项目', link: '/misc/study_abroad/study_tours' },
           { text: '案例', items: [
-            { text: '案例1：美术生申请马来西亚大学', link: '/misc/university_application/cases/case1.md'}
+            { text: '案例1：美术生申请马来西亚大学', link: '/misc/study_abroad/cases/case1.md'}
           ]}
         ]
       }, {
         text: '其他',
         items: [
-          { text: 'Insomnia Treatment', link: '/misc/others/insomnia_treatment' },
-          { text: '段子', link: '/misc/others/skits' },
-          { text: '段子 - 2', link: '/misc/others/skits2' },
-          { text: '段子 - 3', link: '/misc/others/skits3' },
-          { text: '段子 - 4', link: '/misc/others/skits4' },
-          { text: '其他段子', link: '/misc/others/otherskits'}
+          // { text: 'Insomnia Treatment', link: '/misc/others/insomnia_treatment' },
+          // { text: '段子', link: '/misc/others/skits' },
+          // { text: '段子 - 2', link: '/misc/others/skits2' },
+          // { text: '段子 - 3', link: '/misc/others/skits3' },
+          // { text: '段子 - 4', link: '/misc/others/skits4' },
+          // { text: '其他段子', link: '/misc/others/otherskits'}
         ]
       }]
     },
