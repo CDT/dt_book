@@ -310,6 +310,31 @@ const selectDemo = async () => {
   `
 }
 
+// transaction
+const trans1 = async () => {
+  const [user, user1] = await sql.begin(async sql => {
+    const [user] = await sql`
+      insert into usertest (
+        name
+      ) values (
+        'Murray'
+      )
+      returning *
+    `
+
+    const [user1] = await sql`
+      insert into usertest (
+        name
+      ) values (
+        ${ user.name } || 'abc'
+      )
+      returning *
+    `
+
+    return [user, user1]
+  })
+}
+
 
 selectDemo()
 ```
