@@ -339,3 +339,43 @@ const trans1 = async () => {
 selectDemo()
 ```
 :::
+
+## 杂项
+
+### log4js
+
+::: details 代码
+
+``` js
+// 日志配置
+log4js.configure({
+  appenders: {
+    out: { type: 'stdout' },
+    debug: {
+      type: 'dateFile',
+      filename: `${__dirname}/log/debug.log`,
+      pattern: 'yyyy-MM-dd',
+      numBackups: 10
+    },
+    error: {
+      type: 'dateFile',
+      filename: `${__dirname}/log/error.log`,
+      pattern: 'yyyy-MM-dd',
+      numBackups: 10
+    },
+    errorFilter: {
+      type: 'logLevelFilter',
+      appender: 'error',
+      level: 'error'
+    }
+  },
+  categories: {
+    default: { appenders: ['out', 'debug', 'errorFilter'], level: "debug" }
+  }
+});
+
+const logger = log4js.getLogger('common')
+logger.level = 'debug'
+```
+
+:::
