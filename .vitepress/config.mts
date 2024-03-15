@@ -127,6 +127,9 @@ export default defineConfig({
       },{
         text: '摘录段落',
         link: '/literature/excerpts'
+      },{
+        text: '刘慈欣',
+        link: '/literature/lcx'
       }],
       '/misc/': [
       { text: '概述', link : '/misc/' },  
