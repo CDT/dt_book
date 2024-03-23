@@ -269,3 +269,7 @@ So in summary, the postgresql maintenance database is a dedicated system databas
 
 - Check if there is a primary key in your table, if not, you cannot edit the row.
 - Unlike Oracle, PostgreSQL does not have a pseudo column `rowid`. If you don't specify a primary key, pgAdmin cannot identify the row you edit.
+
+### 为什么我的时间的时区总是很乱？
+
+- 创建`Timestamp`类型的列时，一定要使用`Timestamp with time zone`，否则时区有可能会变得很混乱。

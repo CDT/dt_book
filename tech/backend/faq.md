@@ -5,7 +5,7 @@
 First off, do not use algorithms like `MD5` or `SHA-1` due to their vulnerabilities to attacks such as rainbow tables and brute force.
 
 There are some modern cryptographic algorithms specifically designed for password hashing, such as:
-  - **brypt:** A widely recommended choice for password hashing due to its adaptive nature.
+  - **bcrypt:** A widely recommended choice for password hashing due to its adaptive nature.
   - **Argon2:** Winner of Password Hashing Competition and one of the best choices for password hashing.
 
 In addition to employing a robust algorithm, it is advisable to append a random string(commonly referred to as 'salt') to the password before hashing it.
