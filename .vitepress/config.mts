@@ -93,7 +93,8 @@ export default defineConfig({
           { text: 'Typescript', link: '/tech/frontend/typescript' },
           { text: 'Responsive Web Design', link: '/tech/frontend/responsive' },
           { text: 'CSS', link: '/tech/frontend/css' },
-          { text: 'Snippets', link: '/tech/frontend/snippets' }
+          { text: 'Snippets', link: '/tech/frontend/snippets' },
+          { text: 'FAQ', link: '/tech/frontend/faq' }
         ]
       }, {
         text: '后端',
