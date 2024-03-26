@@ -29,3 +29,7 @@
 ```
 
 答案是都不会。
+
+`nth-child`会寻找父节点下的第`n`个元素，**无视**其前面的selector属性。因此，`nth-child(2)`会先找到父节点`<body>`下的第二个元素`<p class='c2'>`，然后按照selector属性`.c1`进行匹配，发现不匹配，因此最后不会应用css属性。
+
+类似的，`nth-of-type`与`nth-child`类似，会先寻找第`n`个`type`符合的元素，然后再按照selector属性进行匹配。`nth-of-type`的`type`指的是html标签名，例如`p:nth-of-type(n)`会去寻找第`n`个`<p>`元素。
