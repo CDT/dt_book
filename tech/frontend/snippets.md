@@ -38,26 +38,45 @@ interface FetchOptions {
   body_type?: 'FormData' | 'UrlEncoded';
 }
 
-export const fetchData = async (url: string, options: FetchOptions) => {
-  
-  const { query, data, method = 'GET', body_type } = options
-
+export const fetchData = async (
+  url: string, 
+  options: {
+    query?: any,
+    data?: any,
+    method?: ('GET' | 'POST'),
+    body_type?: ('FormData' | 'UrlEncoded' | 'JSON')
+  }) => {
   try {
+    const { query, data, method = 'GET', body_type = 'UrlEncoded' } = options
     
-    url = url + (query ? buildQueryString(options.query) : '')
+    url = url + (query ? buildQueryString(query) : '')
 
-    let body: FormData | URLSearchParams | undefined
+    let body: any, headers: any = {}
     
     if (data) {
-      body = body_type === 'FormData' ? new FormData() : new URLSearchParams()
-      for (const key in data) {
-        if (data.hasOwnProperty(key)) {
-          body.append(key, data[key])
+      if (body_type === 'FormData') {
+        body = new FormData()
+      } else if (body_type === 'JSON') {
+        // 务必注意express需要使用中间件json才能解析json数据
+        // app.use(express.json())
+        body = JSON.stringify(data)
+        headers['Content-Type'] = 'application/json'
+      } else if (body_type === 'UrlEncoded') {
+        body = new URLSearchParams()
+      } else {
+        throw new Error('Unrecognized body_type')
+      }
+      
+      if (body_type === 'FormData' || body_type === 'UrlEncoded') {
+        for (let key in data) {
+          if (data.hasOwnProperty(key)) {
+            body.append(key, data[key])
+          }
         }
       }
     }
 
-    const response = await fetch(url, { method, ...(body ? { body } : {}) })
+    const response = await fetch(url, { method, ...(body ? { body } : {}), headers })
     
     if(!response.ok) {
       throw new Error((await response.json()).message || '请求失败')
