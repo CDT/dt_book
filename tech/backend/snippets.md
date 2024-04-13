@@ -340,6 +340,202 @@ selectDemo()
 ```
 :::
 
+## Oracle批量Merge数据
+
+假设从前端传来一组对象，对象的属性名和表的字段名一致，这一组对象如果能和现有数据匹配主键，则更新现有数据；否则新增数据。
+
+``` js
+exports.buildUnionSql = objects => {
+  if (objects.length === 0) return
+
+  const columns = Object.keys(objects[0]);
+
+  const unionAllRows = objects.map(obj => {
+    const values = columns.map(col => {
+      const value = obj[col];
+      return (typeof value === 'string' ? `'${value}'` : value) + ` ${col}`;
+    });
+    return `SELECT ${values.join(', ')} FROM dual`;
+  });
+
+  return unionAllRows.join('\nUNION ALL\n');
+}
+
+
+exports.saveDepts = async depts => {
+
+  let depts_sql = buildUnionSql(depts)
+
+  let sql = `merge into dtchen.fj_depts d
+      using (select *
+              from (${depts_sql})) src
+      on (d.ind = src.ind)
+      when matched then
+        update
+          set d.pub_area   = src.pub_area,
+              d.pub_name   = src.pub_name,
+              d.cmi        = src.cmi,
+              d.occ_risk   = src.occ_risk,
+              d.memo       = src.memo
+      when not matched then
+        insert
+          (ind, pub_area, pub_name, cmi, occ_risk, memo)
+        values
+          ( (select max(ind) +1 from dtchen.fj_depts),
+          src.pub_area,
+          src.pub_name,
+          src.cmi,
+          src.occ_risk,
+          src.memo)
+      `
+  return execute(sql)
+}
+```
+
+## Node-oracledb 基本方法
+
+::: details 内容
+
+``` js
+const oracledb = require('oracledb')
+const { ORACLE_DBS } = require('./config')
+const { logger } = require('./utils')
+
+let createPool = (connectionString, user, password, poolAlias) => {
+  oracledb.createPool({ connectionString, user, password, poolAlias },
+    (err, pool) => {
+      if (err) console.trace(err)
+      logger.debug(`Oracle数据库池已初始化：${poolAlias}: ${connectionString}`)
+    }
+  )
+}
+
+// 初始化Oracle
+exports.initOracle = () => {
+
+  ORACLE_DBS.forEach(db => {
+    createPool(db.uri, db.username, db.password, db.name)
+  })
+
+  oracledb.outFormat = oracledb.OBJECT
+  
+  process.on('exit', closeOracle)
+}
+
+async function execute (statement, binds = {}, pool = 'default', opts = { autoCommit: true }) {
+  let conn
+  opts.outFormat = oracledb.OBJECT
+  logger.debug(statement)
+  try {
+    conn = await oracledb.getConnection(pool)
+    return await conn.execute(statement, binds, opts)
+  } catch (err) {
+    logger.error('问题SQL: ' + statement)
+    logger.error(err.stack)
+    throw err
+  } finally {
+    if (conn) {
+      try {
+        conn.close()
+      } catch (err) {
+        logger.trace(err)
+        logger.error(err.stack)
+        throw err
+      }
+    }
+  }
+}
+
+exports.execute = execute
+
+async function trans(statements, binds = [], pool = 'default') {
+
+  let conn;
+  try {
+    conn = await oracledb.getConnection(pool);
+
+    const results = await Promise.all(statements.map((statement, i) => {
+      logger.debug('trans sql: ', statement, binds[i])
+      return conn.execute(statement, binds[i] || {})
+    }));
+    
+    let hasError = false;
+    for (let res of results) {
+      if (res.error) {
+        hasError = true
+        break
+      }
+    }
+    
+    if (!hasError) {
+      await conn.commit()
+    } else {
+      await conn.rollback()
+      throw new Error('Transaction failed')
+    }
+
+    return {
+      results,
+      rowsAffected: results.reduce((sum, res) => sum + res.rowsAffected, 0)
+    }
+
+  } catch (err) {
+    throw err
+  } finally {
+    if (conn) { 
+      await conn.close()
+    }
+  }
+
+}
+exports.trans = trans
+
+const getPagedResult = (sql, params, pool = 'default') => {
+  return new Promise(async (resolve, reject) => {
+    result_sql = `select * from 
+            (select result.*, rownum rnum from
+              (${sql}) result
+              where rownum <= :page * :pagesize)
+            where rnum > (:page - 1) * :pagesize`
+    total_sql = `select count(1) total from (${sql})`
+    let error
+    let result = await execute(result_sql, params, pool).catch(err => {error = err; console.trace(err); /*reject(err);*/ })
+    if (error) return reject(error)
+        
+    // 查询总数  
+    delete params.page; delete params.pagesize // 删除分页参数，只统计总数
+    let total = await execute(total_sql, params, pool).catch(err => {error = err; console.trace(err); /*reject(err);*/ })
+    if (error) return reject(error)
+    total = total.rows[0].TOTAL
+        
+    result.total = total
+    delete result.metaData
+    resolve(result)
+  })
+}
+exports.getPagedResult = getPagedResult
+
+exports.query =  (sql, params) => {
+
+  if (params.page !== undefined) {
+    return getPagedResult(sql, params)
+  } else {
+    delete params.pagesize
+    return execute(sql, params)
+  }
+  
+}
+
+// close oracle
+closeOracle = async function () {
+  await oracledb.getPool().close()
+  logger.debug('oracle closed.')
+}
+exports.closeOracle = closeOracle
+```
+
+:::
+
 ## 杂项
 
 ### log4js
