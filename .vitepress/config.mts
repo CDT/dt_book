@@ -103,6 +103,7 @@ export default defineConfig({
           { text: 'Nginx & Apache', link: '/tech/backend/nginx_apache' },
           { text: 'PostgreSQL', link: '/tech/backend/postgresql' },
           { text: 'Docker', link: '/tech/backend/docker' },
+          { text: 'Open Source BIs', link: '/tech/backend/opensourcebis' },
           { text: 'Snippets', link: '/tech/backend/snippets' },
           { text: 'FAQ', link: '/tech/backend/faq' }
         ]
