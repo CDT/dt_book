@@ -79,6 +79,17 @@ In the above mount,
 
   - The volume is associated with the path `/var/lib/pgadmin`. The empty object `{}` indicates that this volume is uninitialized (i.e., it doesn’t have any pre-existing data).
 
+### Image hierarchy
+
+The image you inspect may have one or more base images represented under Image hierarchy. This means the author of the image used other images as starting points when building the image. Often these base images are either operating system images such as Debian, Ubuntu, and Alpine, or programming language images such as PHP, Python, and Java.
+
+Selecting each image in the chain lets you see which layers originate from each base image. Selecting the ALL row selects all layers and base images.
+
+One or more of the base images may have updates available, which may include updated security patches that remove vulnerabilities from your image. Any base images with available updates are noted to the right of Image hierarchy.
+
+### Layers
+
+A Docker image consists of layers. Image layers are listed from top to bottom, with the earliest layer at the top and the most recent layer at the bottom. Often, the layers at the top of the list originate from a base image, and the layers towards the bottom added by the image author, often using commands in a Dockerfile. Selecting a base image under Image hierarchy highlights with layers originate from a base image.
 
 ## Operation and Maintenance
 
@@ -156,3 +167,5 @@ Stopping a container just kills the process while removing a container completel
 | List running images | `docker ps` | |
 | Show logs | `docker logs [container_name] [-f] [--tail 10]` | `--tail 10` will only print the last 10 lines of logs. `-f` is follow mode which will keep tailing the logs |
 | Show low-level information on Docker objects | `docker inspect [container_name]`| |
+| Docker desktop image storage location | `\\wsl$\docker-desktop` `\\wsl$\docker-desktop-data` | [ref](https://stackoverflow.com/questions/62380124/where-docker-image-is-stored-with-docker-desktop-for-windows) |
+| Connect as root | `docker exec -u root -it <container-id> /bin/bash` | |

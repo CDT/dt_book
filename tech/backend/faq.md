@@ -62,3 +62,48 @@ In general, using an integer data type for a unique ID in a relational database 
 4. **Sorting and Comparison**: Integers are inherently sortable and comparable, making it easier to perform operations like sorting records or comparing IDs in queries. This can simplify query logic and improve performance in scenarios where sorting or comparison operations are common.
 
 However, there might be specific cases where using a varchar for unique IDs could be justified. For instance, if the unique ID needs to include non-numeric characters or if it's derived from an external system that provides alphanumeric identifiers. In such cases, you may choose to use varchars but be aware of the potential performance and storage implications.
+
+## Oracle的一些常见字符集问题
+
+- 获取当前数据库的字符集：`SELECT * FROM NLS_DATABASE_PARAMETERS WHERE PARAMETER = 'NLS_CHARACTERSET';`
+
+- `NLS_LANG`和`NLS_CHARACTERSET`的区别：
+  - `NLS_LANG`：当前应用程序（如PL/SQL Developer）的解码格式
+  - `NLS_CHARACTERSET`：数据库存储数据的编码格式
+  - 两者应保持一致
+
+- 案例：
+  - 现状：
+    - 数据库A使用`AMERICAN_AMERICA.US7ASCII`编码；
+    - 数据库B使用`AMERICAN_AMERICA.AL32UTF8`编码；
+    - 从数据库B使用DBLINK查询数据库A的汉字数据产生乱码；
+  - 解决办法：
+    - 数据库A创建视图，汉字字段使用`UTL_RAW.CAST_TO_RAW`将其转成Hex字符串；
+    - 数据库B也创建视图，对Hex字符串再使用`UTL_RAW.CAST_TO_VARCHAR2`转成汉字；
+    - 可以正常显示汉字了。
+
+## Oracle SID vs Service Name
+
+A SID is a unique name that uniquely identifies the database instance where as a service name is the Database TNS Alias that is given when users remotely connect to the database. The Service name is recorded in the tnsnames.
+
+## Oracle TNS and tnsnames.ora
+
+Oracle TNS, which stands for Transparent Network Substrate, is a key technology used for connecting to Oracle databases. It essentially acts as a middleman between the client application (like SQL*Plus) and the database server. 
+
+Here's a breakdown of how TNS works:
+
+1. **TNSnames.ora file:** This file, located on the client machine, stores connection information for various Oracle databases in a format understandable by TNS. It acts like an address book, containing aliases (TNS names) that map to the actual connection details like hostname, port, and database name (SID).
+
+2. **TNS Listener:** This is a background service running on the database server. When a client application initiates a connection using a TNS name, the TNS listener on the server receives the request and translates the TNS name into the actual connection details using the tnsnames.ora file.
+
+3. **Connection Establishment:** Once the TNS listener identifies the target database, it establishes a connection between the client application and the appropriate database instance.
+
+In simpler terms, TNS simplifies the connection process by providing a user-friendly alias and handling the underlying communication protocols. You just specify the TNS name, and TNS takes care of finding and connecting to the right Oracle database.
+
+## `tnsnames.ora` vs `listener.ora` vs `sqlnet.ora`
+
+TODO
+
+## Oracle Thin vs Thick mode
+
+TODO
