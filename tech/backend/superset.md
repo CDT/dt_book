@@ -65,3 +65,32 @@ RUN pip install sqlalchemy-redshift
 # Switching back to using the `superset` user
 USER superset
 ```
+
+## Dockerfile with oracle driver support
+
+``` sh
+FROM apache/superset
+
+USER root
+
+RUN apt-get update && apt-get install -y libaio1 wget unzip
+
+WORKDIR /opt/oracle
+RUN wget https://download.oracle.com/otn_software/linux/instantclient/instantclient-basiclite-linuxx64.zip && \
+    unzip instantclient-basiclite-linuxx64.zip && rm -f instantclient-basiclite-linuxx64.zip && \
+    cd /opt/oracle/instantclient* && rm -f *jdbc* *occi* *mysql* *README *jar uidrvci genezi adrci && \
+    echo /opt/oracle/instantclient* > /etc/ld.so.conf.d/oracle-instantclient.conf && ldconfig
+RUN python -m pip install cx_Oracle
+```
+
+Oracle sql alchemy connection string format:
+
+``` sh
+oracle+cx_oracle://<username>:<password>@<host>:<port>/<sid_name>
+```
+
+or 
+
+``` sh
+oracle+cx_oracle://<username>:<password>@<host>:<port>/?service_name=<service_name>
+```

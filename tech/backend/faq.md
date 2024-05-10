@@ -92,7 +92,7 @@ Oracle TNS, which stands for Transparent Network Substrate, is a key technology 
 
 Here's a breakdown of how TNS works:
 
-1. **TNSnames.ora file:** This file, located on the client machine, stores connection information for various Oracle databases in a format understandable by TNS. It acts like an address book, containing aliases (TNS names) that map to the actual connection details like hostname, port, and database name (SID).
+1. **tnsnames.ora file:** This file, located on the client machine, stores connection information for various Oracle databases in a format understandable by TNS. It acts like an address book, containing aliases (TNS names) that map to the actual connection details like hostname, port, and database name (SID).
 
 2. **TNS Listener:** This is a background service running on the database server. When a client application initiates a connection using a TNS name, the TNS listener on the server receives the request and translates the TNS name into the actual connection details using the tnsnames.ora file.
 
@@ -102,7 +102,20 @@ In simpler terms, TNS simplifies the connection process by providing a user-frie
 
 ## `tnsnames.ora` vs `listener.ora` vs `sqlnet.ora`
 
-TODO
+- `tnsnames.ora`:
+  - defines aliases for database connection strings used by clients.
+  - stored on the client, not necessary if connection string is well defined.
+
+- `listener.ora`:
+  - stored on the server to define the TNS services.
+  - configures the listener process that listens for incoming connections and forwards them to the database.
+
+- `sqlnet.ora`:
+  - controls various network parameters and settings for Oracle Net Services.
+
+A connection string like `jdbc:oracle:thin:@dg.his.tjh.com:1521/orcl`, the `orcl` is the service defined by the server using the `listener.ora` file.
+
+You should always use service name instead of SID to connect to an oracle database.
 
 ## Oracle Thin vs Thick mode
 
