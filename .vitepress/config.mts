@@ -105,6 +105,7 @@ export default defineConfig({
           { text: 'Docker', link: '/tech/backend/docker' },
           { text: 'Open Source BIs', link: '/tech/backend/opensourcebis' },
           { text: 'Superset', link: '/tech/backend/superset' },
+          { text: 'Low Code', link: '/tech/backend/lowcode' },
           { text: 'Snippets', link: '/tech/backend/snippets' },
           { text: 'FAQ', link: '/tech/backend/faq' }
         ]
