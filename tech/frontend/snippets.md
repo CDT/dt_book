@@ -91,7 +91,9 @@ const buildQueryString = (params: any) => {
   const queryString = []
 
   for (let key in params) {
-    queryString.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]))
+    if (params[key] != null) {
+      queryString.push(encodeURIComponent(key) + '=' + encodeURIComponent(params[key]))
+    }
   }
 
   return '?' + queryString.join('&')
