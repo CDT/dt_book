@@ -120,3 +120,8 @@ You should always use service name instead of SID to connect to an oracle databa
 ## Oracle Thin vs Thick mode
 
 TODO
+
+## yarn 安装包时报“certificate has expired”
+
+`yarn config set strict-ssl false`
+

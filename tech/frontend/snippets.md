@@ -6,6 +6,83 @@ outline: 'deep'
 
 # Snippets
 
+## Vue
+
+### `v-model` passing in vue3
+
+``` js
+// In child component
+<el-dialog v-model="dialog_visible" .../>
+
+const emit = defineEmits(['update:modelValue'])
+const props = defineProps({
+  modelValue: {
+    type: Boolean,
+    required: true
+  }
+})
+
+const saving = ref<boolean>(false)
+const dialog_visible = computed({
+  get: (): boolean =>  props.modelValue,
+  set: (val: boolean) => emit('update:modelValue', val)
+})
+```
+
+### 如何支持在tab页中支持无需刷新的iframe
+
+[参考](https://juejin.cn/post/6844903894783361032)
+
+在我的普通的多tab页面中，iframe一直会刷新，`<keepalive>`没有用，以下是无需刷新的iframe实现方式：
+
+``` html
+<!-- App.vue -->
+<el-tabs v-model="currentRoute" tab-position="top" type="card" @tab-remove="onTabRemove" class="router-tabs">
+  <el-tab-pane v-for="tab in glob.openTabs" :key="tab.name" :name="tab.name" ref="tabs" closable>
+    
+    <template #label>
+      <el-icon v-if="getRouteByName(tab.name)?.meta?.icon" style="margin-right: 0.2rem"><component :is="getRouteByName(tab.name)?.meta?.icon" /></el-icon>
+      {{ tab.label }}
+      <el-icon class="refresh-icon is-icon-close" @click="refresh(tab)"><refresh-right /></el-icon>
+    </template>
+
+    <router-view v-slot="{ Component }">
+      <!-- 页面仅在当前路径等于页面路径时显示，其他情况不显示 -->
+      <!-- 如果是iframe页面，也不显示，避免每次都加载 -->
+      <keep-alive :include="tab.name">
+        <component :key="route.name" :is="tab.name == route.name ? Component : null" 
+          v-if="tab.refresh_switch && !tab.iframe_src">
+        </component>
+      </keep-alive>
+    </router-view>
+
+    <!-- 如果是iframe页面 -->
+    <iframe v-if="tab.iframe_src" :src="tab.iframe_src" height="900px" width="100%" />
+    
+  </el-tab-pane>
+</el-tabs>
+```
+
+``` js
+// router.ts
+{
+  path: '/fr/orgs',
+  name: 'fr_orgs',
+  component: () => import('@/views/Empty.vue'),
+  meta: {
+    title: 'HIS科室查询',
+    iframe_src: 'http://his.tjh.com/report/ReportServer?reportlet=cdt/orgs.cpt',
+    icon: Search,
+    roles: ['hlfj_admin']
+  }
+}
+```
+
+``` html
+<!-- Empty.vue -->
+<template></template>
+```
+
 ## Element Plus
 
 ### Theme switch
