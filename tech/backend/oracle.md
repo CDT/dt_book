@@ -147,3 +147,52 @@ END;
 ## Oracle Job & Scheduler
 
 ### Oracle Job VS Scheduler
+
+- Oracle Job is older and has fewer featurs.
+
+### Show all jobs/schedulers
+
+- Show all jobs:
+
+``` sql
+SELECT job, -- JOB ID
+       log_user, -- LOGIN USER
+       last_date, -- last successfully executed date
+       next_date, -- next date to execute
+       broken, -- normally N. If Y, no attempt is being made to run this job.
+       failures, -- How many times has this job started and failed since its last success?
+       what -- Body of the anonymous PL/SQL block that this job executes
+  FROM dba_jobs j
+ where j.LOG_USER = 'DTCHEN'
+```
+
+- Show all scheduler jobs:
+
+``` sql
+select owner,
+       job_name,
+       job_action, -- job sql content like 'begin insert...'
+       start_date, -- job start date
+       repeat_interval,
+       enabled,
+       auto_drop, -- Whether this job will be dropped when it has completed
+       state, -- current state eg. 'SCHEDULED' 
+       run_count,
+       failure_count,
+       last_start_date,
+       last_run_duration,
+       next_run_date
+  from dba_scheduler_jobs
+ where owner = 'DTCHEN'
+```
+
+### Troubleshoot scheduler failures
+
+- Find logs
+
+``` sql
+SELECT log_date, status, additional_info
+  FROM dba_scheduler_job_run_details
+ WHERE job_name = 'YOUR_JOB_NAME'
+ ORDER BY log_date DESC;
+```
