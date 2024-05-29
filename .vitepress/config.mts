@@ -102,6 +102,7 @@ export default defineConfig({
           { text: 'Node.js & Javascript', link: '/tech/backend/nodejs' },
           { text: 'Nginx & Apache', link: '/tech/backend/nginx_apache' },
           { text: 'PostgreSQL', link: '/tech/backend/postgresql' },
+          { text: 'Oracle', link: '/tech/backend/oracle'},
           { text: 'Docker', link: '/tech/backend/docker' },
           { text: 'Open Source BIs', link: '/tech/backend/opensourcebis' },
           { text: 'Superset', link: '/tech/backend/superset' },
