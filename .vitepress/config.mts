@@ -47,21 +47,9 @@ export default defineConfig({
           text: '概述',
           link: '/music/'
         }, {
-          text: 'Theory',
+          text: 'Musescore',
           items: [
-            { text: 'Scales', link: '/music/theory/scales' },
-            { text: 'Intervals', link: '/music/theory/intervals' },
-            { text: 'Chords', link: '/music/theory/chords' },
-            { text: 'Rhythm', link: '/music/theory/rhythm' },
-            { text: 'Harmony', link: '/music/theory/harmony' },
-            { text: 'Keys', link: '/music/theory/keys' },
-            { text: 'Tempo', link: '/music/theory/tempo' },
-            { text: 'Notation', link: '/music/theory/notation' },
-            { text: 'Dynamics', link: '/music/theory/dynamics' },
-            { text: 'Beats', link: '/music/theory/beats' },
-            { text: 'Ear Training', link: '/music/theory/eartraining' },
-            { text: 'Texture', link: '/music/theory/texture' },
-            { text: 'Timbre', link: '/music/theory/timbre' }
+            { text: 'Basics', link: '/music/musescore/basics' }
           ]
         }, {
           text: 'Sheet music',
@@ -94,6 +82,8 @@ export default defineConfig({
           { text: 'Responsive Web Design', link: '/tech/frontend/responsive' },
           { text: 'CSS', link: '/tech/frontend/css' },
           { text: 'Snippets', link: '/tech/frontend/snippets' },
+          { text: 'Quasar', link: '/tech/frontend/quasar' },
+          { text: 'Tauri', link: '/tech/frontend/tauri' },
           { text: 'FAQ', link: '/tech/frontend/faq' }
         ]
       }, {
