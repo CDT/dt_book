@@ -28,3 +28,44 @@ yarn quasar dev
 # or: 
 npx quasar dev
 ```
+
+## File structure
+
+# Project Name
+
+## Project Structure
+
+```
+./
+│
+├── public/    # Static Assets
+│
+├── src/
+│   ├── assets/    # dynamic assets processed by Vite
+│   ├── components/    # vue components
+|   |   ├── XXX.vue
+|   |   └── models.ts    # typescript interfaces 
+│   ├── css/    # style files
+│   ├── layout/    # layout
+│   ├── pages/    # pages
+│   └── router/    # router
+|   |   ├── index.ts    # do not modify this
+|   |   └── routes.ts    # add your routes here
+│   ├── App.vue    # app entry file
+│   ├── env.d.ts    # env file
+│   └── quasar.d.ts    # forces TS to apply `@quasar/app-vite` augmentations of `quasar` package
+│
+└── quasar.config.js    # quasar app configuration
+```
+
+## PWA support
+
+[Developing PWA](https://quasar.dev/quasar-cli-webpack/developing-pwa/introduction/)
+
+
+
+## Useful links
+
+1. [Quasar Awesome](https://github.com/quasarframework/quasar-awesome)
+    - [Community extensions](https://github.com/quasarframework/quasar-awesome?tab=readme-ov-file#community-app-extensions)
+    - [Projects](https://github.com/quasarframework/quasar-awesome?tab=readme-ov-file#projects-using-quasar)
