@@ -222,3 +222,8 @@ npm config rm registry
 - 出现错误包含随机包名的，属于莫名其妙的网络问题，这种问题没有根治方法，只能进行如下操作：
   1. 切换网络，用手机热点也行
   2. 不停地重试
+
+
+### `yarn global add`安装的包仍然提示`command not found`
+
+需要将`yarn global bin`输出的路径加到`Path`环境变量中。

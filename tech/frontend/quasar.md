@@ -62,7 +62,38 @@ npx quasar dev
 
 [Developing PWA](https://quasar.dev/quasar-cli-webpack/developing-pwa/introduction/)
 
+### Commands
 
+To add pwa mode to an existing project:
+
+``` bash
+# go to project root directory
+quasar mode add pwa
+```
+
+To start dev mode with pwa support:
+
+``` bash
+quasar dev -m pwa
+```
+
+To build pwa app:
+
+```
+quasar build -m pwa
+```
+
+### Configuration
+
+After adding pwa mode to the project, a folder named `src-pwa` will appear under root directory:
+
+```
+./
+│
+├── src-pwa/
+    ├── register-service-worker.js  # (or .ts) App-code *managing* service worke
+    └── custom-service-worker.js  # (or .ts) Optional custom service worker file (InjectManifest mode ONLY) 
+```
 
 ## Useful links
 
