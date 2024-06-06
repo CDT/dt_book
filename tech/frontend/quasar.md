@@ -97,7 +97,15 @@ After adding pwa mode to the project, a folder named `src-pwa` will appear under
 
 ## Layout
 
+### Links
+
 - [Layout builder](https://quasar.dev/layout-builder)
+- [Layout gallery](https://quasar.dev/layout/gallery/)
+
+## Admin templates
+
+- [Pratik Quasar Admin](https://github.com/pratik227/quasar-admin)
+- [Gin Quasar Admin](https://github.com/Junvary/gin-quasar-admin?tab=readme-ov-file)
 
 ## Useful links
 
