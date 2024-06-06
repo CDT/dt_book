@@ -1,3 +1,7 @@
+---
+outline: 'deep'
+---
+
 # Quasar
 
 - A Vue.js-based framework for building high-performance, responsive websites, mobile apps, and desktop apps with a unified codebase, offering Material Design components, powerful CLI tools, cross-platform capabilities, and excellent performance optimization features.
@@ -30,10 +34,6 @@ npx quasar dev
 ```
 
 ## File structure
-
-# Project Name
-
-## Project Structure
 
 ```
 ./
@@ -83,7 +83,7 @@ To build pwa app:
 quasar build -m pwa
 ```
 
-### Configuration
+### Configuration: `src-pwa`
 
 After adding pwa mode to the project, a folder named `src-pwa` will appear under root directory:
 
@@ -94,6 +94,10 @@ After adding pwa mode to the project, a folder named `src-pwa` will appear under
     ├── register-service-worker.js  # (or .ts) App-code *managing* service worke
     └── custom-service-worker.js  # (or .ts) Optional custom service worker file (InjectManifest mode ONLY) 
 ```
+
+## Layout
+
+- [Layout builder](https://quasar.dev/layout-builder)
 
 ## Useful links
 
