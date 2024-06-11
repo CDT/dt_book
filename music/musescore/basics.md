@@ -18,3 +18,4 @@
 | Select multiple bars | Use `Shift` to connect |
 | Triplet | Press `Ctrl + 3` |
 | Select multiple notes | Press `Ctrl` |
+| Add custom text | Select a note in the bar and press `Ctrl + T` |

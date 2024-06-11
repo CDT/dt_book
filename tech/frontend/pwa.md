@@ -90,6 +90,20 @@ Notice that this is a minimal version of `manifest.json`. All of the following p
 
 ### 4. Service Worker
 
+[Chrome developer Service worker](https://developer.chrome.com/docs/workbox/service-worker-overview?hl=zh-cn)
+
+- Service Worker 是专门的 JavaScript 资源，充当网络浏览器和 Web 服务器之间的代理。它们旨在通过提供离线访问来提高可靠性，以及提升网页性能。
+
+- Service Worker 是现有网站的**增强功能**。这意味着，如果用户使用不支持 Service Worker 的浏览器访问使用这些 Service Worker 的网站，则不会破坏基准功能。这就是网络的意义所在。
+
+## Workbox
+
+[Chrome developer Workbox](https://developer.chrome.com/docs/workbox?hl=zh-cn)
+
+Service Worker 看起来可能很棘手。面对大量复杂的互动，很难做到这一点。网络请求！缓存策略！缓存管理！预缓存！ 其中有很多信息需要记住。 这不会使 Service Worker 成为一种设计不合理的技术；它能够按预期运行，并可解决棘手的问题。
+
+好的抽象会使复杂的 API 更易于使用。 这正是 Workbox 的用武之地。 Workbox 是一组可简化常见 Service Worker 路由和缓存的模块。每个可用模块都适用于 Service Worker 开发的一个具体方面。Workbox 旨在尽可能简化 Service Worker 的使用，同时根据需要灵活地满足复杂的应用要求。
+
 ## Demos
 
 [↓ Download Menustrual Tracker](/misc/ct.zip)
