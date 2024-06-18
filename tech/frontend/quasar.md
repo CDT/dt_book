@@ -172,7 +172,7 @@ export default {
 ``` html
 <template>
   <q-page class="flex flex-center bg-grey-2">
-    <q-card class="q-pa-md shadow-2 my_card" bordered>
+    <q-card class="q-pa-md shadow-2 login-card" bordered>
       <q-card-section class="text-center">
         <div class="text-grey-9 text-h5 text-weight-bold">Sign in</div>
         <div class="text-grey-8">Sign in below to access your account</div>
@@ -195,9 +195,15 @@ border-radius: 8px;" color="dark" rounded size="md" label="Sign in" no-caps clas
   </q-page>
 </template>
 
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const email = ref<string>('')
+const password = ref<string>('')
+</script>
 
 <style scoped>
-.my_card {
+.login-card {
   width: 25rem;
   border-radius: 8px;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
