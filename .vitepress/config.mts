@@ -161,9 +161,9 @@ export default defineConfig({
       }]
     },
 
-    socialLinks: [
-      { icon: wechatIcon, link: '/images/wechat.jpg' }
-    ],
+    // socialLinks: [
+    //   { icon: wechatIcon, link: '/images/wechat.jpg' }
+    // ],
     search: {
       provider: 'local'
     }
