@@ -34,7 +34,8 @@ export default defineConfig({
           text: '世界史',
           items: [
             { text: '欧洲', link: '/history/world/europe' },
-            { text: '世界大战', link: '/history/world/war' }
+            { text: '世界大战', link: '/history/world/war' },
+            { text: '独裁者和邪恶政权', link: '/history/world/dictators' }
           ]
         }, {
           text: '其他',
