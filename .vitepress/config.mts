@@ -126,6 +126,18 @@ export default defineConfig({
       },{
         text: '刘慈欣',
         link: '/literature/lcx'
+      },{
+        text: '涂沐',
+        items: [{
+          text: '诸色戒之序',
+          link: '/literature/tm/zsjzx'
+        },{
+          text: '诸色戒之阴阳眼',
+          link: '/literature/tm/zsjzyyy'
+        },{
+          text: '诸色戒之绯之月轮',
+          link: '/literature/tm/zsjzfzyl'
+        }]
       }],
       '/misc/': [
       { text: '概述', link : '/misc/' },  
