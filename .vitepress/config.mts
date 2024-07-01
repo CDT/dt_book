@@ -129,14 +129,23 @@ export default defineConfig({
       },{
         text: '涂沐',
         items: [{
-          text: '诸色戒之序',
+          text: '诸色界之序',
           link: '/literature/tm/zsjzx'
         },{
-          text: '诸色戒之阴阳眼',
+          text: '诸色界之阴阳眼',
           link: '/literature/tm/zsjzyyy'
         },{
-          text: '诸色戒之绯之月轮',
+          text: '诸色界之绯之月轮',
           link: '/literature/tm/zsjzfzyl'
+        },{
+          text: '诸色界之雪葬谷',
+          link: '/literature/tm/zsjzxzg'
+        }/*,{
+          text: '诸色界之尘缘',
+          link: '/literature/tm/zsjzcy'
+        }*/,{
+          text: '诸色界之雪葬谷',
+          link: '/literature/tm/zsjzxzg'
         }]
       }],
       '/misc/': [
