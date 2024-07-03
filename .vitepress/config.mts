@@ -147,6 +147,12 @@ export default defineConfig({
           text: '诸色界之雪葬谷',
           link: '/literature/tm/zsjzxzg'
         }]
+      },{
+        text: '江南',
+        items: [{
+          text: '刹那公子',
+          link: '/literature/jn/cngz'
+        }]
       }],
       '/misc/': [
       { text: '概述', link : '/misc/' },  
