@@ -178,7 +178,8 @@ export default defineConfig({
           { text: '段子 - 2', link: '/misc/others/skits2' },
           { text: '段子 - 3', link: '/misc/others/skits3' },
           { text: '段子 - 4', link: '/misc/others/skits4' },
-          { text: '其他段子', link: '/misc/others/otherskits'}
+          { text: '其他段子', link: '/misc/others/otherskits'},
+          { text: 'AI应用', link: '/misc/others/ai_apps'}
         ]
       }]
     },
