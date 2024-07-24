@@ -544,34 +544,56 @@ exports.closeOracle = closeOracle
 
 ``` js
 // 日志配置
-log4js.configure({
-  appenders: {
-    out: { type: 'stdout' },
-    debug: {
-      type: 'dateFile',
-      filename: `${__dirname}/log/debug.log`,
-      pattern: 'yyyy-MM-dd',
-      numBackups: 10
+const initLoggers = () => {
+  log4js.configure({
+    appenders: {
+      out: { type: 'stdout' },
+      debug: {
+        type: 'dateFile',
+        filename: path.join(__dirname, '../log/debug.log'),
+        pattern: 'yyyy-MM-dd',
+        numBackups: 10
+      },
+      error: {
+        type: 'dateFile',
+        filename: path.join(__dirname, '../log/error.log'),
+        pattern: 'yyyy-MM-dd',
+        numBackups: 10
+      },
+      errorFilter: {
+        type: 'logLevelFilter',
+        appender: 'error',
+        level: 'error'
+      }
     },
-    error: {
-      type: 'dateFile',
-      filename: `${__dirname}/log/error.log`,
-      pattern: 'yyyy-MM-dd',
-      numBackups: 10
-    },
-    errorFilter: {
-      type: 'logLevelFilter',
-      appender: 'error',
-      level: 'error'
+    categories: {
+      default: { appenders: ['out', 'debug', 'errorFilter'], level: "debug" }
     }
-  },
-  categories: {
-    default: { appenders: ['out', 'debug', 'errorFilter'], level: "debug" }
-  }
-});
-
-const logger = log4js.getLogger('common')
+  });
+}
+const logger = log4js.getLogger()
 logger.level = 'debug'
+exports.logger = logger
 ```
 
 :::
+
+### `node.js`多服务器
+
+``` js
+exports.startMultiServer = function (app, port) {
+  const numCPUs = require('os').cpus().length
+  const cluster = require('cluster')
+  if (cluster.isMaster) {
+    for (let i = 0; i < numCPUs; i++) {
+      cluster.fork()
+    }
+    cluster.on('exit', function(worker, code, signal) {
+      logger.debug(`worker process ${worker.process.pid} died`)
+    })
+  } else {
+    app.listen(port)
+    logger.debug(`server (pid ${process.pid}) started`)
+  }
+}
+```

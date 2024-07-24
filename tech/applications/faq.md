@@ -114,6 +114,31 @@ jobs:
 "args": ["--verbose", "--name=Test"]
 ```
 
+### Vue.js调试配置
+
+::: info
+先运行前端程序如`yarn dev`，然后再从vs code运行调试命令
+:::
+
+``` json
+{
+  "name": "Launch Edge",
+  "request": "launch",
+  "type": "msedge",
+  "url": "http://localhost:5173",
+  "webRoot": "${workspaceFolder}"
+},
+
+
+{
+  "name": "Launch Chrome",
+  "request": "launch",
+  "type": "chrome",
+  "url": "http://localhost:5173",
+  "webRoot": "${workspaceFolder}"
+}
+```
+
 ### Typescript配置
 
 - Typescript debug配置：
