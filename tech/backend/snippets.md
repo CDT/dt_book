@@ -344,6 +344,8 @@ selectDemo()
 
 假设从前端传来一组对象，对象的属性名和表的字段名一致，这一组对象如果能和现有数据匹配主键，则更新现有数据；否则新增数据。
 
+::: details 代码
+
 ``` js
 exports.buildUnionSql = objects => {
   if (objects.length === 0) return
@@ -391,6 +393,8 @@ exports.saveDepts = async depts => {
   return execute(sql)
 }
 ```
+
+:::
 
 ## Node-oracledb 基本方法
 
@@ -536,9 +540,7 @@ exports.closeOracle = closeOracle
 
 :::
 
-## 杂项
-
-### log4js
+## log4js
 
 ::: details 代码
 
@@ -578,7 +580,9 @@ exports.logger = logger
 
 :::
 
-### `node.js`多服务器
+## `node.js`多服务器
+
+::: details 代码
 
 ``` js
 exports.startMultiServer = function (app, port) {
@@ -597,3 +601,28 @@ exports.startMultiServer = function (app, port) {
   }
 }
 ```
+
+:::
+
+## `bcrypt`加解密
+
+::: details 代码
+
+``` sql
+const bcrypt = require('bcrypt');
+
+// test parameters:
+const saltRounds = 10;
+const plainTextPassword = 'mySecurePassword123';
+
+// Usage
+const test = async () => {
+  const generatedHash = await bcrypt.hash(plainTextPassword, saltRounds)
+  console.log(`Generate hash (original text: ${plainTextPassword}):`, generatedHash)
+  console.log(`Notice that the hash if different even with the same original text \n`)
+  console.log('Password match: ', await bcrypt.compare(plainTextPassword, generatedHash))
+}
+test()
+```
+
+:::

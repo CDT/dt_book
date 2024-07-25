@@ -1,3 +1,6 @@
+---
+outline: 'deep'
+---
 # FAQ
 
 ## 创建SSH密钥
