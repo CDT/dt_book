@@ -247,9 +247,11 @@ npm config rm registry
 
 - 问题：安装包时，总是出现随机的`Received malformed response from registry for [随机包名]`错误或者`Couldn't find package [随机包名] on the npm registry`，怎么处理？
 
-- 出现错误包含随机包名的，属于莫名其妙的网络问题，这种问题没有根治方法，只能进行如下操作：
-  1. 切换网络，用手机热点也行
-  2. 不停地重试
+这是网络问题，非常浪费时间，**装`cnpm`，换registry或者用代理都没用**，目前来看只有这些方法：
+
+1. 用手机热点，但是这个也不一定靠谱
+
+2. 映射这台电脑的磁盘到另一台电脑，在另一台电脑上安装，这个麻烦点但是效果不错
 
 
 ### `yarn global add`安装的包仍然提示`command not found`

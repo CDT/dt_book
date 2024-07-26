@@ -62,6 +62,28 @@ In general, using an integer data type for a unique ID in a relational database 
 4. **Sorting and Comparison**: Integers are inherently sortable and comparable, making it easier to perform operations like sorting records or comparing IDs in queries. This can simplify query logic and improve performance in scenarios where sorting or comparison operations are common.
 
 However, there might be specific cases where using a varchar for unique IDs could be justified. For instance, if the unique ID needs to include non-numeric characters or if it's derived from an external system that provides alphanumeric identifiers. In such cases, you may choose to use varchars but be aware of the potential performance and storage implications.
+
 ## yarn 安装包时报“certificate has expired”
 
 `yarn config set strict-ssl false`
+
+## token鉴权机制
+
+[参考](https://stackoverflow.com/questions/47224931/is-setting-roles-in-jwt-a-best-practice)
+
+Three strategies:
+
+1. `Add roles to JWT` if:
+  - a) Convenience is important and you want to avoid extra database calls
+  - b) You don't care about the permission risk in the time window
+
+2. `Add roles to JWT and use a blacklist` if:
+  - a) Avoid permission risks
+  - b) Don't care about JWT payload increase
+
+3. `Not roles added to JWT and fetch on demand` if:
+  - a) Avoid permission risks
+  - b) Avoid JWT payload increase
+  - c) Don't care about database load
+
+Personally I prefer option 2.
