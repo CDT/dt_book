@@ -1,3 +1,7 @@
+---
+outline: 'deep'
+---
+
 # Oracle
 
 ## Oracle的一些常见字符集问题
@@ -143,6 +147,69 @@ BEGIN
    );
 END;
 ```
+
+## Handing deadlocks or resource busy
+
+### Resource busy lock
+
+``` sql
+SELECT v.sid, v.SERIAL#, s.SQL_TEXT, s.SQL_FULLTEXT
+  FROM V$LOCKED_OBJECT o, V$SESSION v, V$SQL s
+ WHERE o.SESSION_ID = v.sid
+   and v.sql_id = s.sql_id
+   and o.object_id = (SELECT object_id
+                        FROM dba_objects
+                       WHERE object_name = '住院医嘱表'
+                         AND owner = 'SHENJI2024');
+```
+
+2. Kill the session
+
+``` sql
+ALTER SYSTEM KILL SESSION 'SID,SERIAL#' IMMEDIATE;
+```
+
+### Infinite update
+
+1. Find the session
+
+``` sql
+SELECT l.sid,
+       s.serial#,
+       l.type,
+       l.id1,
+       l.id2,
+       l.lmode,
+       l.request,
+       s.username,
+       s.machine
+  FROM v$lock l
+  JOIN v$session s
+    ON l.sid = s.sid
+ WHERE l.type IN ('TM', 'TX')
+   AND l.id1 =
+       (SELECT object_id FROM user_objects WHERE object_name = '表名');
+```
+
+2. Kill the session
+
+``` sql
+ALTER SYSTEM KILL SESSION 'SID,SERIAL#' IMMEDIATE;
+```
+
+### Session marked for kill error
+
+1. Check the status of the session
+
+``` sql
+SELECT sid, serial#, status, username, machine
+  FROM v$session
+ WHERE sid = [sid];
+```
+
+If `status` is `KILLED`, then the session is marked for termination but not yet terminated; if no data then it's already killed.
+
+2. The session should be killed after some time. If it remains terminating forever, TODO
 
 ## Oracle Job & Scheduler
 
