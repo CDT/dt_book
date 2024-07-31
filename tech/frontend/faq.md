@@ -49,3 +49,113 @@
 - Option 3:
 
 `clonedArray = nodesArray.map(a => {return {...a}})`
+
+## Websocket
+
+WebSockets enable real-time, bidirectional communication between client and server over a single, persistent TCP connection, offering efficient data exchange for applications requiring live updates and interaction.
+
+Typical WebSocket use cases:
+
+1. Chat applications
+2. Live sports scores/updates
+3. Stock market tickers
+4. Multiplayer games
+5. Collaborative editing tools
+6. Real-time analytics dashboards
+7. Social media feeds
+8. IoT device communication
+9. Live auctions
+10. Video conferencing systems
+
+These applications benefit from WebSockets' ability to push instant updates from server to client without constant polling.
+
+::: details Demo code
+
+- Frontend:
+
+``` html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Demo</title>
+</head>
+<body>
+    <h1>WebSocket Demo</h1>
+    <input type="text" id="messageInput" placeholder="Enter a message">
+    <button onclick="sendMessage()">Send</button>
+    <div id="messages"></div>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:8080');
+        const messagesDiv = document.getElementById('messages');
+
+        socket.onopen = () => {
+            console.log('Connected to WebSocket server');
+        };
+
+        socket.onmessage = (event) => {
+            const message = document.createElement('p');
+            message.textContent = event.data;
+            messagesDiv.appendChild(message);
+        };
+
+        socket.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+
+        socket.onclose = () => {
+            console.log('Disconnected from WebSocket server');
+        };
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value;
+            socket.send(message);
+            input.value = '';
+        }
+    </script>
+</body>
+</html>
+```
+
+- Backend:
+
+``` js
+const WebSocket = require('ws');
+const http = require('http');
+const fs = require('fs');
+
+const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    fs.readFile('index.html', (err, data) => {
+      if (err) {
+        res.writeHead(500);
+        return res.end('Error loading index.html');
+      }
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.end(data);
+    });
+  }
+});
+
+const wss = new WebSocket.Server({ server });
+
+wss.on('connection', (ws) => {
+  console.log('Client connected');
+
+  ws.on('message', (message) => {
+    console.log('Received:', message.toString());
+    ws.send(`Server received: ${message}`);
+  });
+
+  ws.send('Welcome to the WebSocket server!');
+});
+
+server.listen(8080, () => {
+  console.log('Server is running on http://localhost:8080');
+});
+```
+
+:::
