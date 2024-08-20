@@ -257,3 +257,6 @@ npm config rm registry
 ### `yarn global add`安装的包仍然提示`command not found`
 
 需要将`yarn global bin`输出的路径加到`Path`环境变量中。
+
+## Oracle转发
+

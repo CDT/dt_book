@@ -198,6 +198,21 @@ server {
 }
 ```
 
+### TCP forwarding
+
+```
+stream {
+    upstream ssh {
+		    server X.X.X.X:XXXX;
+    }
+
+    server {
+        listen 6666;
+        proxy_pass  ssh;
+    }
+}
+```
+
 ### Pitfalls
 
 - 1. **Do not use single backslash for windows path**
